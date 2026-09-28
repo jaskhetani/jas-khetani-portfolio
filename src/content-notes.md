@@ -30,4 +30,4 @@ Higgsfield status:
 - CLI installed and authenticated.
 - Workspace selected and image/video model listing works.
 - Actual image generation via CLI returned: `only_mcp_usage_on_trial_is_available`.
-- Therefore this version uses a CSS-generated yin-yang / peach-blossom visual fallback rather than claiming a generated Higgsfield asset.
+- Therefore this version uses a CSS-generated left-side cherry blossom tree, wind-drifting petals, footer-ground root system, proof-map layout, and AI-native operating-style section rather than claiming a generated Higgsfield asset.

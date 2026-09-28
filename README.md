@@ -7,8 +7,8 @@ Vercel-ready portfolio for Jas Khetani: AI systems, automation, quantum/data pro
 - Vite
 - React
 - Static build for Vercel
-- CSS-generated yin-yang / peach-blossom visual system
-- Benchmark-informed case-study and freelance-hub structure
+- CSS-generated left-side cherry blossom tree, drifting petals, footer-ground roots
+- Benchmark-informed proof-map, AI operating-style, and restrained freelance-hub structure
 
 ## Local development
 

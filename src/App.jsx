@@ -7,11 +7,11 @@ const externalLinks = [
   { label: 'Email', href: 'mailto:j.khetani@student.fdu.edu' },
 ];
 
-const researchSignals = [
-  { value: '60', label: 'portfolio references benchmarked' },
-  { value: '53', label: 'used projects as the main proof layer' },
-  { value: '34', label: 'used teaching/writing to prove judgment' },
-  { value: '12', label: 'had explicit service or consulting funnels' },
+const credibilitySignals = [
+  { label: 'Academic base', value: 'CS + Data Science @ FDU' },
+  { label: 'Current standing', value: 'GPA 3.6 + merit/scholarship awards' },
+  { label: 'AI proof', value: 'AI301, RAG, debugging, eval workflows' },
+  { label: 'Research signal', value: 'Dynamic feature-based malware classification' },
 ];
 
 const proofRooms = [
@@ -26,14 +26,14 @@ const proofRooms = [
     eyebrow: 'Client room',
     title: 'A small studio for useful automations, not vague “AI consulting.”',
     copy:
-      'The freelance side is intentionally concrete: intake, automation maps, RAG prototypes, dashboards, and workflow cleanup for students, creators, and small teams.',
-    bullets: ['Workflow automation', 'RAG knowledge assistants', 'Portfolio/profile rebuilds'],
+      'The freelance side stays concrete: workflow maps, RAG prototypes, dashboards, portfolio surfaces, and operational cleanup for students, creators, and small teams.',
+    bullets: ['Workflow automation', 'RAG knowledge assistants', 'Profile and process rebuilds'],
   },
   {
     eyebrow: 'Inner room',
     title: 'The person behind the system: discipline, combat, quantum curiosity.',
     copy:
-      'The peach blossom and yin-yang theme is not decoration. It frames the tension I actually live in: precision and softness, engineering and philosophy, ambition and restraint.',
+      'The blossom tree is not decoration. It frames the tension I live in: precision and softness, engineering and philosophy, ambition and restraint.',
     bullets: ['Kalaripayattu discipline', 'Quantum learning path', 'Hermes-assisted execution'],
   },
 ];
@@ -62,7 +62,7 @@ const caseStudies = [
     title: 'Field Systems / Product Sense',
     subtitle: 'Sanitized operational stories for serious readers.',
     copy:
-      'The event-ticketing story is the proof of field judgment: QR entry, pass categories, low-network constraints, concurrent scanning, and the humility to redesign after a spreadsheet-backed MVP hits its limits.',
+      'The event-ticketing story is proof of field judgment: QR entry, pass categories, low-network constraints, concurrent scanning, and the humility to redesign after a spreadsheet-backed MVP hits its limits.',
     proof: ['QR ticketing', 'Low-network operations', 'Expectation → constraint translation'],
     href: '#contact',
   },
@@ -74,6 +74,21 @@ const caseStudies = [
       'The malware-classification poster and future Medium notes belong here: explain the work, name the limits, and prove that I can translate complexity for professors, employers, and collaborators.',
     proof: ['ML/security poster', 'Medium restart', 'Technical storytelling'],
     href: 'https://www.researchgate.net/publication/409343971_Dynamic_Feature-Based_Malware_Classification',
+  },
+];
+
+const operatingCards = [
+  {
+    title: 'Coursework accountability',
+    copy: 'Hermes helps me keep the semester visible: portal updates, calendar/task hygiene, daily standups, and evening reviews.',
+  },
+  {
+    title: 'Inspectable AI use',
+    copy: 'I use agents to sharpen questions, check assumptions, repair workflows, and make my thinking harder to fake.',
+  },
+  {
+    title: 'Execution ritual',
+    copy: 'The goal is not “AI did it.” The goal is fewer dropped threads between school, research, work, and public proof.',
   },
 ];
 
@@ -96,40 +111,68 @@ const services = [
 ];
 
 const benchmarkLessons = [
-  'Karpathy/Weng/Willison pattern: writing is not decoration; it is proof of judgment.',
-  'Eugene Yan/Hamel pattern: case studies beat project grids when systems thinking matters.',
-  'Quantum Country/PennyLane pattern: interactive/visual learning makes hard domains memorable.',
-  'Top dev portfolios pattern: one unmistakable visual motif wins more than five generic sections.',
+  'Writing is not decoration; it is proof of judgment.',
+  'Case studies beat project grids when systems thinking matters.',
+  'Quantum and visual-learning references work best when they make hard domains approachable.',
+  'One unmistakable visual motif wins more than five generic portfolio sections.',
 ];
 
-const credibilitySignals = [
-  { label: 'Academic base', value: 'CS + Data Science @ FDU' },
-  { label: 'Current standing', value: 'GPA 3.6 + merit/scholarship awards' },
-  { label: 'Research signal', value: 'Dynamic feature-based malware classification' },
-  { label: 'Operating layer', value: 'Hermes-assisted semester execution' },
-];
-
-const petals = Array.from({ length: 22 }, (_, index) => ({
+const fallingPetals = Array.from({ length: 38 }, (_, index) => ({
   id: index,
-  left: `${(index * 37) % 100}%`,
-  delay: `${(index * 0.73) % 8}s`,
-  duration: `${9 + (index % 7)}s`,
-  scale: `${0.72 + (index % 5) * 0.12}`,
+  left: `${4 + ((index * 9) % 34)}vw`,
+  delay: `-${(index * 0.47) % 10}s`,
+  duration: `${13 + (index % 9)}s`,
+  drift: `${34 + (index % 6) * 9}vw`,
+  scale: `${0.62 + (index % 5) * 0.13}`,
 }));
 
-function PetalField() {
+const staticPetals = [
+  ['18vw', '15vh', '-18deg'],
+  ['27vw', '23vh', '24deg'],
+  ['36vw', '32vh', '-42deg'],
+  ['45vw', '42vh', '18deg'],
+  ['52vw', '51vh', '-8deg'],
+  ['61vw', '61vh', '34deg'],
+  ['69vw', '72vh', '-28deg'],
+  ['78vw', '84vh', '16deg'],
+  ['86vw', '91vh', '-12deg'],
+];
+
+function BlossomWorld() {
   return (
-    <div className="petal-field" aria-hidden="true">
-      {petals.map((petal) => (
+    <div className="blossom-world" aria-hidden="true">
+      <div className="story-tree">
+        <div className="tree-trunk-large" />
+        <div className="tree-shadow" />
+        <div className="canopy cluster-one" />
+        <div className="canopy cluster-two" />
+        <div className="canopy cluster-three" />
+        <div className="tree-branch branch-a" />
+        <div className="tree-branch branch-b" />
+        <div className="tree-branch branch-c" />
+        <div className="tree-branch branch-d" />
+      </div>
+      <div className="wind-ribbon ribbon-one" />
+      <div className="wind-ribbon ribbon-two" />
+      <div className="wind-ribbon ribbon-three" />
+      {fallingPetals.map((petal) => (
         <span
           key={petal.id}
-          className="petal"
+          className="falling-petal"
           style={{
             left: petal.left,
             animationDelay: petal.delay,
             animationDuration: petal.duration,
-            transform: `scale(${petal.scale})`,
+            '--drift': petal.drift,
+            '--petal-scale': petal.scale,
           }}
+        />
+      ))}
+      {staticPetals.map(([left, top, rotate], index) => (
+        <span
+          key={`static-${index}`}
+          className="static-petal"
+          style={{ left, top, rotate }}
         />
       ))}
     </div>
@@ -139,7 +182,7 @@ function PetalField() {
 function App() {
   return (
     <main>
-      <PetalField />
+      <BlossomWorld />
       <header className="site-nav" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Jas Khetani home">
           <span className="brand-mark">花</span>
@@ -147,26 +190,13 @@ function App() {
         </a>
         <nav>
           <a href="#proof">Proof</a>
+          <a href="#operating-style">AI use</a>
           <a href="#services">Services</a>
-          <a href="#philosophy">Philosophy</a>
           <a href="#contact" className="nav-cta">Enquire</a>
         </nav>
       </header>
 
       <section id="top" className="hero section-shell">
-        <div className="yin-stage" aria-hidden="true">
-          <div className="moon-disc" />
-          <div className="tree-trunk" />
-          <div className="branch branch-one" />
-          <div className="branch branch-two" />
-          <div className="branch branch-three" />
-          <div className="root root-one" />
-          <div className="root root-two" />
-          <div className="blossom b1" />
-          <div className="blossom b2" />
-          <div className="blossom b3" />
-          <div className="blossom b4" />
-        </div>
         <p className="kicker">AI systems · quantum curiosity · disciplined execution</p>
         <h1>Where precision learns softness.</h1>
         <p className="hero-copy">
@@ -181,15 +211,6 @@ function App() {
         <div className="made-by">Made by Vera Hermes · Jas’s Hermes agent</div>
       </section>
 
-      <section className="research-strip section-shell" aria-label="Research benchmark summary">
-        {researchSignals.map((item) => (
-          <article key={item.label}>
-            <strong>{item.value}</strong>
-            <span>{item.label}</span>
-          </article>
-        ))}
-      </section>
-
       <section className="section-shell credibility-grid" aria-label="Credibility signals">
         {credibilitySignals.map((item) => (
           <article key={item.label}>
@@ -201,11 +222,11 @@ function App() {
 
       <section id="proof" className="section-shell thesis-grid">
         <div className="thesis-copy">
-          <p className="kicker">The new structure</p>
+          <p className="kicker">The proof map</p>
           <h2>Three rooms, one person.</h2>
           <p>
-            The README already says “AI systems, automation, quantum + data.” The website goes deeper: how I
-            think, where the proof lives, and how an employer or client should engage with me.
+            The README gives the first impression. The website goes deeper: how I think, where the proof lives,
+            and how an employer or client should engage with me without getting lost in old coursework noise.
           </p>
         </div>
         <div className="room-stack">
@@ -245,25 +266,42 @@ function App() {
         </div>
       </section>
 
-      <section id="services" className="service-band">
-        <div className="section-shell service-grid">
-          <div className="service-intro">
-            <p className="kicker">Freelance hub</p>
-            <h2>Small, useful systems for people who need the work to move.</h2>
-            <p>
-              I am not selling magic. I am offering disciplined build help: map the problem, produce the first
-              working artifact, and leave behind a process you can actually use.
-            </p>
-          </div>
-          <div className="service-cards">
-            {services.map((service) => (
-              <article key={service.title}>
-                <h3>{service.title}</h3>
-                <p>{service.copy}</p>
-                <span>{service.deliverable}</span>
-              </article>
-            ))}
-          </div>
+      <section id="operating-style" className="section-shell operating-section">
+        <div className="section-head narrow">
+          <p className="kicker">AI-native operating style</p>
+          <h2>I use AI as leverage, not camouflage.</h2>
+          <p>
+            The point of Hermes is not to outsource taste. It is to make my work more inspectable: sharper
+            questions, better checklists, tighter accountability, and fewer abandoned threads.
+          </p>
+        </div>
+        <div className="operating-grid">
+          {operatingCards.map((card) => (
+            <article key={card.title}>
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="section-shell service-panel">
+        <div className="service-intro">
+          <p className="kicker">Freelance hub</p>
+          <h2>Small, useful systems for people who need the work to move.</h2>
+          <p>
+            I am not selling magic. I am offering disciplined build help: map the problem, produce the first
+            working artifact, and leave behind a process you can actually use.
+          </p>
+        </div>
+        <div className="service-cards">
+          {services.map((service) => (
+            <article key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.copy}</p>
+              <span>{service.deliverable}</span>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -272,9 +310,9 @@ function App() {
           <p className="kicker">Design language</p>
           <h2>Asymmetrical, but balanced.</h2>
           <p>
-            The site uses a yin-yang composition and drifting peach blossoms because the brand is not “generic
-            AI student.” It is disciplined softness: Caro-Kann patience, Kalaripayattu body-awareness, quantum
-            curiosity, and Hermes-assisted execution. The petals move randomly; the page still feels composed.
+            The cherry blossom tree starts on the left because the site should feel rooted, not templated. Branches
+            carry blossoms at the top; petals drift toward the lower right; the contact section becomes the ground
+            where the roots show just enough to give the page weight.
           </p>
         </article>
         <article className="benchmark-card">
@@ -285,17 +323,26 @@ function App() {
         </article>
       </section>
 
-      <section id="contact" className="section-shell contact-card">
-        <div>
-          <p className="kicker">Next move</p>
-          <h2>Employer, collaborator, or client — choose the right doorway.</h2>
-          <p>
-            For internships, start with the proof map. For client work, send the workflow you want cleaned up.
-            For technical conversation, Medium and GitHub show the current trail.
-          </p>
+      <section id="contact" className="contact-ground">
+        <div className="root-system" aria-hidden="true">
+          <span className="root-line r1" />
+          <span className="root-line r2" />
+          <span className="root-line r3" />
+          <span className="root-line r4" />
+          <span className="petal-pile" />
         </div>
-        <div className="contact-links">
-          {externalLinks.map((link) => <a href={link.href} key={link.label}>{link.label}</a>)}
+        <div className="section-shell contact-card">
+          <div>
+            <p className="kicker">Next move</p>
+            <h2>Employer, collaborator, or client — choose the right doorway.</h2>
+            <p>
+              For internships, start with the proof map. For client work, send the workflow you want cleaned up.
+              For technical conversation, Medium and GitHub show the current trail.
+            </p>
+          </div>
+          <div className="contact-links">
+            {externalLinks.map((link) => <a href={link.href} key={link.label}>{link.label}</a>)}
+          </div>
         </div>
       </section>
     </main>
