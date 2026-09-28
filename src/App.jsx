@@ -1,200 +1,301 @@
-const profileLinks = [
+const externalLinks = [
   { label: 'GitHub', href: 'https://github.com/jaskhetani' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jas-khetani' },
   { label: 'Medium', href: 'https://medium.com/@jaskhetani' },
+  { label: 'ResearchGate', href: 'https://www.researchgate.net/publication/409343971_Dynamic_Feature-Based_Malware_Classification' },
+  { label: 'Chess.com', href: 'https://www.chess.com/member/jaskhetani' },
+  { label: 'Email', href: 'mailto:j.khetani@student.fdu.edu' },
 ];
 
-const proofStats = [
-  { value: 'AI', label: 'RAG, evals, debugging, guardrails' },
-  { value: 'QC', label: 'Qiskit, Q#, OpenQASM exploration' },
-  { value: 'FDE', label: 'Product thinking + field constraints' },
-  { value: 'Data', label: 'Big-data analytics learning track' },
+const researchSignals = [
+  { value: '60', label: 'portfolio references benchmarked' },
+  { value: '53', label: 'used projects as the main proof layer' },
+  { value: '34', label: 'used teaching/writing to prove judgment' },
+  { value: '12', label: 'had explicit service or consulting funnels' },
+];
+
+const proofRooms = [
+  {
+    eyebrow: 'Employer room',
+    title: 'Proof that I can think like an AI engineer before I have the title.',
+    copy:
+      'Recruiters do not need another list of frameworks. They need to see how I choose issues, reproduce failures, measure outputs, and decide when an AI answer is not good enough.',
+    bullets: ['AI301 contribution workflow', 'RAG and evaluation notes', 'Debugging logs over demo polish'],
+  },
+  {
+    eyebrow: 'Client room',
+    title: 'A small studio for useful automations, not vague “AI consulting.”',
+    copy:
+      'The freelance side is intentionally concrete: intake, automation maps, RAG prototypes, dashboards, and workflow cleanup for students, creators, and small teams.',
+    bullets: ['Workflow automation', 'RAG knowledge assistants', 'Portfolio/profile rebuilds'],
+  },
+  {
+    eyebrow: 'Inner room',
+    title: 'The person behind the system: discipline, combat, quantum curiosity.',
+    copy:
+      'The peach blossom and yin-yang theme is not decoration. It frames the tension I actually live in: precision and softness, engineering and philosophy, ambition and restraint.',
+    bullets: ['Kalaripayattu discipline', 'Quantum learning path', 'Hermes-assisted execution'],
+  },
 ];
 
 const caseStudies = [
   {
-    eyebrow: 'AI Engineering Lab',
-    title: 'Coursework turned into proof of engineering discipline.',
-    description:
-      'AI301 and CodePath work reframed around issue selection, reproducibility, eval harnesses, RAG failure modes, and the habit of verifying AI instead of worshipping it.',
-    status: 'Cleanup in progress',
-    accent: 'develop',
-    links: [
-      { label: 'ai301-coursework', href: 'https://github.com/jaskhetani/ai301-coursework' },
-      { label: 'DocuBot RAG lab', href: 'https://github.com/jaskhetani/ai110-module4tinker-docubot-starter' },
-    ],
+    number: '01',
+    title: 'AI Engineering Lab',
+    subtitle: 'Coursework converted into operating evidence.',
+    copy:
+      'AI301 and CodePath work become a lab notebook: issue triage, eval harnesses, contribution stories, prompt failures, and small systems that make AI output testable.',
+    proof: ['ai301-coursework', 'DocuBot RAG', 'Game Glitch debugging'],
+    href: 'https://github.com/jaskhetani/ai301-coursework',
   },
   {
-    eyebrow: 'Quantum Computing Projects',
-    title: 'A public learning trail through quantum algorithms and simulation.',
-    description:
-      'A differentiating body of Qiskit, Q#, Python, Jupyter, and OpenQASM experiments. The next pass adds a project status table, cleaner outputs, and a sharper portfolio narrative.',
-    status: 'Public showcase candidate',
-    accent: 'preview',
-    links: [
-      { label: 'Quantum repo', href: 'https://github.com/jaskhetani/Quantum-Computing-Projects' },
-    ],
+    number: '02',
+    title: 'Quantum / Data Garden',
+    subtitle: 'A differentiator that should feel curious, not gimmicky.',
+    copy:
+      'Quantum projects are reframed as a learning garden: algorithms, Qiskit/Q#, simulations, and public notes. The site should make the repo easier to enter, not merely link to it.',
+    proof: ['Qiskit + Q#', 'OpenQASM', 'Medium quantum writing'],
+    href: 'https://github.com/jaskhetani/Quantum-Computing-Projects',
   },
   {
-    eyebrow: 'Product Systems',
-    title: 'Operational prototypes with privacy-aware storytelling.',
-    description:
-      'Selected private/product work can become sanitized case studies: problem, constraints, system decisions, validation, and lessons — without exposing sensitive implementation details.',
-    status: 'Sanitized case study only',
-    accent: 'ship',
-    links: [{ label: 'Private by design', href: '#contact' }],
+    number: '03',
+    title: 'Field Systems / Product Sense',
+    subtitle: 'Sanitized operational stories for serious readers.',
+    copy:
+      'The event-ticketing story is the proof of field judgment: QR entry, pass categories, low-network constraints, concurrent scanning, and the humility to redesign after a spreadsheet-backed MVP hits its limits.',
+    proof: ['QR ticketing', 'Low-network operations', 'Expectation → constraint translation'],
+    href: '#contact',
   },
   {
-    eyebrow: 'Research Communication',
-    title: 'Security and ML work translated for humans.',
-    description:
-      'The malware-classification poster and future technical writing belong here: concise explanations, defensible claims, and artifacts that make the work legible to recruiters.',
-    status: 'Artifact pending',
-    accent: 'neutral',
-    links: [{ label: 'Writing queue', href: '#writing' }],
+    number: '04',
+    title: 'Research Communication',
+    subtitle: 'Making technical work legible without inflating it.',
+    copy:
+      'The malware-classification poster and future Medium notes belong here: explain the work, name the limits, and prove that I can translate complexity for professors, employers, and collaborators.',
+    proof: ['ML/security poster', 'Medium restart', 'Technical storytelling'],
+    href: 'https://www.researchgate.net/publication/409343971_Dynamic_Feature-Based_Malware_Classification',
   },
 ];
 
-const nowBuilding = [
-  'Public RAG/evals/guardrails proof that shows failure analysis, not just a demo.',
-  'Vercel portfolio rebuild with recruiter-grade case-study routing.',
-  'Medium restart for AI-assisted productivity, systems thinking, and learning-in-public notes.',
+const services = [
+  {
+    title: 'AI workflow audit',
+    copy: 'Map your current process, identify repetitive decisions, and propose a pragmatic automation or AI-agent layer.',
+    deliverable: '1-page workflow map + build plan',
+  },
+  {
+    title: 'RAG prototype sprint',
+    copy: 'Turn messy documents, notes, or course material into a small retrieval assistant with honest limitations.',
+    deliverable: 'Prototype + eval checklist',
+  },
+  {
+    title: 'Portfolio / GitHub surface rebuild',
+    copy: 'Clean a technical profile so employers understand the signal instead of drowning in old project noise.',
+    deliverable: 'Narrative, README, and site structure',
+  },
 ];
 
-const cleanupItems = [
-  'Clean generated files from Quantum-Computing-Projects and add a status table.',
-  'Rewrite ai301-coursework top README as an AI engineering lab, not course logistics.',
-  'Clean DocuBot RAG repo before promoting it as a case study.',
-  'Archive or hide legacy/training repos that distract from the current signal.',
+const benchmarkLessons = [
+  'Karpathy/Weng/Willison pattern: writing is not decoration; it is proof of judgment.',
+  'Eugene Yan/Hamel pattern: case studies beat project grids when systems thinking matters.',
+  'Quantum Country/PennyLane pattern: interactive/visual learning makes hard domains memorable.',
+  'Top dev portfolios pattern: one unmistakable visual motif wins more than five generic sections.',
 ];
+
+const credibilitySignals = [
+  { label: 'Academic base', value: 'CS + Data Science @ FDU' },
+  { label: 'Current standing', value: 'GPA 3.6 + merit/scholarship awards' },
+  { label: 'Research signal', value: 'Dynamic feature-based malware classification' },
+  { label: 'Operating layer', value: 'Hermes-assisted semester execution' },
+];
+
+const petals = Array.from({ length: 22 }, (_, index) => ({
+  id: index,
+  left: `${(index * 37) % 100}%`,
+  delay: `${(index * 0.73) % 8}s`,
+  duration: `${9 + (index % 7)}s`,
+  scale: `${0.72 + (index % 5) * 0.12}`,
+}));
+
+function PetalField() {
+  return (
+    <div className="petal-field" aria-hidden="true">
+      {petals.map((petal) => (
+        <span
+          key={petal.id}
+          className="petal"
+          style={{
+            left: petal.left,
+            animationDelay: petal.delay,
+            animationDuration: petal.duration,
+            transform: `scale(${petal.scale})`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 function App() {
   return (
     <main>
+      <PetalField />
       <header className="site-nav" aria-label="Primary navigation">
         <a className="brand" href="#top" aria-label="Jas Khetani home">
-          <span className="brand-mark">JK</span>
+          <span className="brand-mark">花</span>
           <span>Jas Khetani</span>
         </a>
         <nav>
-          <a href="#case-studies">Work</a>
-          <a href="#now">Now</a>
-          <a href="#writing">Writing</a>
-          <a href="#contact" className="nav-cta">Contact</a>
+          <a href="#proof">Proof</a>
+          <a href="#services">Services</a>
+          <a href="#philosophy">Philosophy</a>
+          <a href="#contact" className="nav-cta">Enquire</a>
         </nav>
       </header>
 
       <section id="top" className="hero section-shell">
-        <div className="hero-orbit" aria-hidden="true" />
-        <p className="kicker">AI systems · automation · quantum/data projects</p>
-        <h1>Building practical AI systems with the discipline to verify them.</h1>
+        <div className="yin-stage" aria-hidden="true">
+          <div className="moon-disc" />
+          <div className="tree-trunk" />
+          <div className="branch branch-one" />
+          <div className="branch branch-two" />
+          <div className="branch branch-three" />
+          <div className="root root-one" />
+          <div className="root root-two" />
+          <div className="blossom b1" />
+          <div className="blossom b2" />
+          <div className="blossom b3" />
+          <div className="blossom b4" />
+        </div>
+        <p className="kicker">AI systems · quantum curiosity · disciplined execution</p>
+        <h1>Where precision learns softness.</h1>
         <p className="hero-copy">
-          I’m Jas Khetani, a CS student at Fairleigh Dickinson University focused on big-data analytics,
-          electrical engineering technology, and the kind of AI/FDE work where taste, evidence, and execution
-          all have to survive contact with reality.
+          I’m Jas Khetani — a CS student building toward AI engineering and Forward-Deployed work, with a
+          quantum/data spine and a practical freelance studio for useful automation. This site is not a second
+          résumé. It is the garden behind the résumé.
         </p>
         <div className="hero-actions">
-          <a href="#case-studies" className="button primary">View case studies</a>
-          <a href="https://github.com/jaskhetani" className="button secondary">GitHub profile</a>
+          <a href="#proof" className="button primary">Enter the proof map</a>
+          <a href="#services" className="button secondary">Client services</a>
         </div>
+        <div className="made-by">Made by Vera Hermes · Jas’s Hermes agent</div>
       </section>
 
-      <section className="proof-strip section-shell" aria-label="Portfolio focus areas">
-        {proofStats.map((item) => (
-          <article className="metric-card" key={item.value}>
+      <section className="research-strip section-shell" aria-label="Research benchmark summary">
+        {researchSignals.map((item) => (
+          <article key={item.label}>
             <strong>{item.value}</strong>
             <span>{item.label}</span>
           </article>
         ))}
       </section>
 
-      <section id="case-studies" className="section-shell split-heading">
-        <div>
-          <p className="kicker">Selected work</p>
-          <h2>Curated signal, not a landfill of repositories.</h2>
-        </div>
-        <p>
-          The portfolio should route attention like a clean deployment pipeline: strongest proof first,
-          supporting artifacts second, legacy clutter nowhere near the recruiter’s first click.
-        </p>
-      </section>
-
-      <section className="case-grid section-shell">
-        {caseStudies.map((study) => (
-          <article className={`case-card ${study.accent}`} key={study.title}>
-            <div className="card-topline">
-              <span>{study.eyebrow}</span>
-              <span className="pill">{study.status}</span>
-            </div>
-            <h3>{study.title}</h3>
-            <p>{study.description}</p>
-            <div className="link-row">
-              {study.links.map((link) => (
-                <a href={link.href} key={link.label}>{link.label}</a>
-              ))}
-            </div>
+      <section className="section-shell credibility-grid" aria-label="Credibility signals">
+        {credibilitySignals.map((item) => (
+          <article key={item.label}>
+            <span>{item.label}</span>
+            <strong>{item.value}</strong>
           </article>
         ))}
       </section>
 
-      <section id="now" className="section-shell workflow-section">
-        <div className="workflow-copy">
-          <p className="kicker">Now building</p>
-          <h2>Develop → Preview → Ship, without pretending half-polished work is finished.</h2>
+      <section id="proof" className="section-shell thesis-grid">
+        <div className="thesis-copy">
+          <p className="kicker">The new structure</p>
+          <h2>Three rooms, one person.</h2>
           <p>
-            The next phase is a cleanup sprint followed by deployment. A portfolio site is only useful if the
-            links behind it do not wobble like a badly-mounted shelf.
+            The README already says “AI systems, automation, quantum + data.” The website goes deeper: how I
+            think, where the proof lives, and how an employer or client should engage with me.
           </p>
         </div>
-        <div className="pipeline" aria-label="Current build pipeline">
-          <article>
-            <span className="mono develop-text">Develop</span>
-            <h3>Repo hygiene</h3>
-            <p>Remove generated junk, stale starters, exposed config risk, and weak descriptions.</p>
-          </article>
-          <article>
-            <span className="mono preview-text">Preview</span>
-            <h3>Case studies</h3>
-            <p>Frame work by problem, constraints, decisions, evidence, and limitation.</p>
-          </article>
-          <article>
-            <span className="mono ship-text">Ship</span>
-            <h3>Vercel portfolio</h3>
-            <p>Deploy a fast static site once the content surface is respectable.</p>
-          </article>
+        <div className="room-stack">
+          {proofRooms.map((room) => (
+            <article className="room-card" key={room.title}>
+              <span>{room.eyebrow}</span>
+              <h3>{room.title}</h3>
+              <p>{room.copy}</p>
+              <ul>
+                {room.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
+              </ul>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section-shell two-column">
-        <article className="panel">
-          <p className="kicker">Priority cleanup</p>
-          <h2>Before the spotlight, the room gets cleaned.</h2>
-          <ul className="check-list">
-            {cleanupItems.map((item) => <li key={item}>{item}</li>)}
-          </ul>
+      <section className="section-shell case-section">
+        <div className="section-head">
+          <p className="kicker">Case studies, not cards</p>
+          <h2>Proof should read like decisions under pressure.</h2>
+        </div>
+        <div className="case-list">
+          {caseStudies.map((study) => (
+            <article className="case-row" key={study.title}>
+              <span className="case-number">{study.number}</span>
+              <div>
+                <p className="case-subtitle">{study.subtitle}</p>
+                <h3>{study.title}</h3>
+                <p>{study.copy}</p>
+                <div className="proof-tags">
+                  {study.proof.map((tag) => <span key={tag}>{tag}</span>)}
+                </div>
+              </div>
+              <a href={study.href} aria-label={`Open ${study.title}`}>Open</a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="services" className="service-band">
+        <div className="section-shell service-grid">
+          <div className="service-intro">
+            <p className="kicker">Freelance hub</p>
+            <h2>Small, useful systems for people who need the work to move.</h2>
+            <p>
+              I am not selling magic. I am offering disciplined build help: map the problem, produce the first
+              working artifact, and leave behind a process you can actually use.
+            </p>
+          </div>
+          <div className="service-cards">
+            {services.map((service) => (
+              <article key={service.title}>
+                <h3>{service.title}</h3>
+                <p>{service.copy}</p>
+                <span>{service.deliverable}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="philosophy" className="section-shell philosophy-section">
+        <article className="philosophy-card">
+          <p className="kicker">Design language</p>
+          <h2>Asymmetrical, but balanced.</h2>
+          <p>
+            The site uses a yin-yang composition and drifting peach blossoms because the brand is not “generic
+            AI student.” It is disciplined softness: Caro-Kann patience, Kalaripayattu body-awareness, quantum
+            curiosity, and Hermes-assisted execution. The petals move randomly; the page still feels composed.
+          </p>
         </article>
-        <article id="writing" className="panel dark-panel">
-          <p className="kicker">Writing / thinking</p>
-          <h2>Notes that make the work legible.</h2>
-          <ul className="check-list">
-            {nowBuilding.map((item) => <li key={item}>{item}</li>)}
+        <article className="benchmark-card">
+          <p className="kicker">What the benchmark changed</p>
+          <ul>
+            {benchmarkLessons.map((lesson) => <li key={lesson}>{lesson}</li>)}
           </ul>
         </article>
       </section>
 
       <section id="contact" className="section-shell contact-card">
         <div>
-          <p className="kicker">Contact</p>
-          <h2>For AI engineering, FDE-style internships, and serious build conversations.</h2>
+          <p className="kicker">Next move</p>
+          <h2>Employer, collaborator, or client — choose the right doorway.</h2>
           <p>
-            Start with GitHub for artifacts, LinkedIn for professional context, and Medium for longer notes as
-            the writing surface comes online.
+            For internships, start with the proof map. For client work, send the workflow you want cleaned up.
+            For technical conversation, Medium and GitHub show the current trail.
           </p>
         </div>
         <div className="contact-links">
-          {profileLinks.map((link) => (
-            <a href={link.href} key={link.label}>{link.label}</a>
-          ))}
+          {externalLinks.map((link) => <a href={link.href} key={link.label}>{link.label}</a>)}
         </div>
       </section>
     </main>

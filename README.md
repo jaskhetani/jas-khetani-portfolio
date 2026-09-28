@@ -7,7 +7,8 @@ Vercel-ready portfolio for Jas Khetani: AI systems, automation, quantum/data pro
 - Vite
 - React
 - Static build for Vercel
-- Geist-inspired Vercel visual system
+- CSS-generated yin-yang / peach-blossom visual system
+- Benchmark-informed case-study and freelance-hub structure
 
 ## Local development
 

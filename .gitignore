@@ -8,4 +8,5 @@ Thumbs.db
 *.log
 .vercel/
 portfolio-preview.png
+portfolio-mobile-preview.png
 verification.json
