@@ -1,0 +1,3 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync,existsSync} from 'node:fs';
+test('homepage uses recruiter-recognizable headings and the bundle tree',()=>{const s=readFileSync(new URL('../index.html',import.meta.url),'utf8');for(const heading of ['AI &amp; Software Engineering','Selected Projects','Technical Skills','Experience &amp; Education','Technical Writing','Contact'])assert.ok(s.includes(heading),heading);assert.ok(s.includes('id="tree"'));assert.ok(s.includes('arrival-leaf'));});
+test('journal and on-site reader are separate document routes',()=>{for(const f of ['journal.html','read.html','study.html'])assert.ok(existsSync(new URL('../'+f,import.meta.url)),f);});

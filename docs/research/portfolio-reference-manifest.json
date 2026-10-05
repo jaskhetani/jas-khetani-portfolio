@@ -1,0 +1,918 @@
+{
+  "method": "55 distinct personal pages; self-reported roles, no causal employment inference",
+  "references": [
+    {
+      "id": 1,
+      "url": "https://amanpatel.vercel.app",
+      "page_title": "Aman Patel — Forward-Deployed AI Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Customer-embedded production claims; scoping-to-rollout narrative and trade-offs.",
+      "observed_headings": [
+        "I ship production GenAI where the customer lives.",
+        "The Forward-Deployed pattern, by default",
+        "Flagship Projects",
+        "Finance — AI Filings Analyst",
+        "YTC — Dual-Engine Research Platform",
+        "FactorForge — Auditable Research Engine"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11195,
+      "source": "[1]"
+    },
+    {
+      "id": 2,
+      "url": "https://deployedengineer.dev",
+      "page_title": "Ahmed — Deployed Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Live demo + GitHub links beside production-project descriptions.",
+      "observed_headings": [
+        "Ahmed.currently: open to work ✦"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4742,
+      "source": "[2]"
+    },
+    {
+      "id": 3,
+      "url": "https://mosalim.dev",
+      "page_title": "Muhammed Salim | AI Engineer · Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Experience, projects and reliability/cost concerns appear together.",
+      "observed_headings": [
+        "PRODUCTION AI  ",
+        "Experience",
+        "AI Engineer",
+        "AI Engineer (Part-time)",
+        "Software Engineer",
+        "Projects"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 2285,
+      "source": "[3]"
+    },
+    {
+      "id": 4,
+      "url": "https://prayas17.github.io/portfolio",
+      "page_title": "Prayas Jain — AI Engineer · Applied AI · Forward Deployed · Full-Stack AI",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Discovery-to-deployment positioning with concrete production case studies.",
+      "observed_headings": [
+        "Engineer first. _Built to hold up_ in production.",
+        "Where I do my _best_ work.",
+        "Retrieval-Augmented Generation, in production.",
+        "Agentic AI & multi-agent orchestration.",
+        "Model Context Protocol (MCP) servers.",
+        "Full-stack AI application development."
+      ],
+      "retrieval": "jina",
+      "readable_characters": 6778,
+      "source": "[4]"
+    },
+    {
+      "id": 5,
+      "url": "https://zoltanfabry.com",
+      "page_title": "Zoltan Fabry - AI Engineer | Agent Orchestration & LLM Integration",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "What I Build / How I Build / Writing gives both outcomes and method.",
+      "observed_headings": [
+        "What I Build",
+        "Open Brain",
+        "Content Security",
+        "Multi-Agent Orchestration",
+        "How I Build",
+        "Writing"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 5731,
+      "source": "[5]"
+    },
+    {
+      "id": 6,
+      "url": "https://musiladev.vercel.app",
+      "page_title": "Musila Peter | Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Customer deployment experience plus a specific built-project gallery.",
+      "observed_headings": [
+        "01. About Me",
+        "Core Competencies:",
+        "Tools of the Trade:",
+        "02. Impact & Experience",
+        "Forward Deployed Engineer @ FDE – Client Deployments",
+        "03. Some Things I've Built"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4362,
+      "source": "[6]"
+    },
+    {
+      "id": 7,
+      "url": "https://z4hid.github.io",
+      "page_title": "Md. Zahid Hasan — AI & Cybersecurity Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "AI systems and security sit together; project categories are easy to scan.",
+      "observed_headings": [
+        "I engineer hype _real AI systems_ that ship.",
+        "AI Chatbots & Agents",
+        "Offensive & Defensive Security",
+        "RAG & Knowledge Systems",
+        "Computer Vision",
+        "Full-Stack AI & Web Platforms"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 10996,
+      "source": "[7]"
+    },
+    {
+      "id": 8,
+      "url": "https://dkethan.github.io/portfolio",
+      "page_title": "Kethan Dosapati | AI Engineer Portfolio",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Founding AI engineer experience and a “where I shipped” narrative.",
+      "observed_headings": [
+        "Kethan Dosapati",
+        "A bit about me.",
+        "Where I've shipped.",
+        "Data Engineer · American Express",
+        "Founding AI Engineer · Cornerstone Tech",
+        "AI Engineer · Cornerstone Tech"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11487,
+      "source": "[8]"
+    },
+    {
+      "id": 9,
+      "url": "https://akshay-kumar-bm.github.io",
+      "page_title": "Akshay Kumar BM — Production AI Agents for Operations",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Production agents foreground restraint, human oversight and scoped access.",
+      "observed_headings": [
+        "AI agents that run in production — not just in demos.",
+        "Shipped, not sketched.",
+        "Capability is easy. Restraint is the skill.",
+        "Human-in-the-loop by default",
+        "Scoped, non-destructive access",
+        "Built on the stack that already exists"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 7089,
+      "source": "[9]"
+    },
+    {
+      "id": 10,
+      "url": "https://rafay-ah.github.io",
+      "page_title": "Abdul Rafay Ahmed | Senior Full-Stack Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Project-specific engineering notes rather than a generic skills wall.",
+      "observed_headings": [
+        "DataGroomr Assistant",
+        "Enrichment engine",
+        "Real-time duplicate detection and the matching engine",
+        "FilerKaro",
+        "Social-data collection and Arabic-dialect NLP",
+        "Live vision for a Red Bull Fortnite tournament"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 21714,
+      "source": "[10]"
+    },
+    {
+      "id": 11,
+      "url": "https://sujit1661.github.io/sujit",
+      "page_title": "Sujit Sadalage | AI Engineer & Full Stack Developer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "A RAG console appears as a tangible product, not merely a keyword.",
+      "observed_headings": [
+        "Sujit Sadalage — I BUILD INTELLIGENT  ",
+        "Work  ",
+        "What I Do",
+        "LLM-Integrated Web Apps",
+        "Full Stack & UI Dev",
+        "RAG Pipelines"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 16869,
+      "source": "[11]"
+    },
+    {
+      "id": 12,
+      "url": "https://vpm-portfolio.vercel.app",
+      "page_title": "Vivek Marakumbi | AI Engineer Portfolio",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Experience and specific AI projects are separated for fast evaluation.",
+      "observed_headings": [
+        "Vivek Marakumbi",
+        "Character Sheet",
+        "Experience",
+        "AI Engineer",
+        "AI Engg Intern (Outamation Extern)",
+        "Machine Learning Intern"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 13102,
+      "source": "[12]"
+    },
+    {
+      "id": 13,
+      "url": "https://vmdeshpande.github.io/vedant-deshpande-portfolio",
+      "page_title": "AI Systems & Infrastructure Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "AI workflow automation and infrastructure given distinct capability lanes.",
+      "observed_headings": [
+        "Building intelligent systems that a u t o m a t e",
+        "Expertise  ",
+        "Full Stack Developer",
+        "Core Focus Areas",
+        "AI Workflow Automation",
+        "Full Stack Applications"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 6053,
+      "source": "[13]"
+    },
+    {
+      "id": 14,
+      "url": "https://fatehaliaamir2100.github.io/fateh-portfolio",
+      "page_title": "Fateh Ali Aamir — Backend Developer & AI Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Compact AI/LLM systems and backend focus, emphasizing shipping.",
+      "observed_headings": [
+        "Shipping Intelligent Systems That Scale",
+        "Core Skills",
+        "AI & LLM Engineering",
+        "Python",
+        "JavaScript / TypeScript",
+        "Golang"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 3889,
+      "source": "[14]"
+    },
+    {
+      "id": 15,
+      "url": "https://yadidiah.vercel.app",
+      "page_title": "Yadidiah Kanaparthi — AI/ML & Backend Systems Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Selected work and experience shown beside simulations and their status.",
+      "observed_headings": [
+        "Yadidiah  ",
+        "Selected work",
+        "Stack",
+        "Experience",
+        "AI Automation Engineer",
+        "Digital Intelligence (job simulation)"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 12711,
+      "source": "[15]"
+    },
+    {
+      "id": 16,
+      "url": "https://sameershah-portfolio.vercel.app",
+      "page_title": "Sameer Shah is a Pakistan-based AI and Full-Stack Engineer specializing in LLM applications, RAG chatbots, FastAPI backe",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "AI/RAG implementation paired with a visible service-focused narrative.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 8737,
+      "source": "[16]"
+    },
+    {
+      "id": 17,
+      "url": "https://vishalsahilai.vercel.app",
+      "page_title": "AI Automation Engineer building intelligent agents, workflow automation, RAG systems, voice AI and production-ready AI t",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Agent, voice and workflow automation examples in a practical gallery.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 11813,
+      "source": "[17]"
+    },
+    {
+      "id": 18,
+      "url": "https://tanayshah.dev/projects/structured-ai",
+      "page_title": "Fourteen weeks of agent infrastructure, sandboxed runtimes, an iOS app, and durable chat — all in production. — case stu",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Deep project case study of agent infrastructure and production trade-offs.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 6710,
+      "source": "[18]"
+    },
+    {
+      "id": 19,
+      "url": "https://saadsharifahmed.com",
+      "page_title": "Home - Saad Sharif Ahmed",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Published writing linked near work; an assistant interface is explicitly offered.",
+      "observed_headings": [
+        "SAAD SHARIF AHMED — AI ENGINEER / PM",
+        "currently",
+        "last_deploy: 2 months ago · uptime 99.94%",
+        "view all posts →",
+        "ai_saad@v1 ready. ask me about my work, stack, or the time I broke prod with a bad regex."
+      ],
+      "retrieval": "direct-html",
+      "readable_characters": 5861,
+      "source": "[19]"
+    },
+    {
+      "id": 20,
+      "url": "https://www.mwasif.dev",
+      "page_title": "AI/ML Engineer Portfolio Hero",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Live Lab and projects demonstrate artifacts before technologies.",
+      "observed_headings": [
+        "I'm Muhammad Wasif Anwar, building learning systems that learn you back.",
+        "From prototypes to production at ML speed.",
+        "Tech DNA",
+        "Live Lab",
+        "Projects",
+        "NeuralCanvas – AI Digital Art Studio"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 10929,
+      "source": "[20]"
+    },
+    {
+      "id": 21,
+      "url": "https://cjparry.dev",
+      "page_title": "Chris Parry - Founding Engineer. Real-time AI, shipped end-to-end.",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Founder/engineer project narratives cover shipped AI products and constraints.",
+      "observed_headings": [
+        "Chris Parry",
+        "A New Kind of Portfolio",
+        "Projects & Experience",
+        "DigitEyes - AI Avatar SaaS Platform (Founder)",
+        "Lexertia - Legal-Tech AI Avatar Platform",
+        "Drug Test Analysis Automation - Workit Health"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 17364,
+      "source": "[21]"
+    },
+    {
+      "id": 22,
+      "url": "https://www.hassanpasha.com",
+      "page_title": "Hassan Pasha — Principal AI Engineer & Head of AI",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Problems, what was built, and testimonials are attached to claims.",
+      "observed_headings": [
+        "AI that  ",
+        "Don't take my word for it.  ",
+        "DBSA-27B, an 8.3M-node scholarly graph, and long-context reasoning infrastructure",
+        "The problem",
+        "What I built",
+        "Which one is costing you money?"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11320,
+      "source": "[22]"
+    },
+    {
+      "id": 23,
+      "url": "https://edwardyi.dev",
+      "page_title": "Edward Yi | AI Engineer, Founder, Builder",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "An AI-assisted product is explained in relation to real user checks.",
+      "observed_headings": [
+        "Trained a skin-cancer detector.Then built the check.",
+        "The model finds  ",
+        "SecondLook",
+        "What I’ve been building.",
+        "Other projects",
+        "I build products and lead teams."
+      ],
+      "retrieval": "jina",
+      "readable_characters": 5276,
+      "source": "[23]"
+    },
+    {
+      "id": 24,
+      "url": "https://jeremygracey.ai",
+      "page_title": "Jeremy Gracey — AI Architect · AI Engineer · Founder · Designer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Flagship systems and responsible-AI lanes balance breadth and depth.",
+      "observed_headings": [
+        "Production AI that s h i p s.",
+        "Range and depth,  ",
+        "Clinical AI",
+        "Agentic AI",
+        "Design-engineering",
+        "Responsible AI"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 22328,
+      "source": "[24]"
+    },
+    {
+      "id": 25,
+      "url": "https://harisahmed.dev",
+      "page_title": "Haris Ahmed — AI Engineer & Full-Stack Software Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "A clear production-systems positioning line and supporting project evidence.",
+      "observed_headings": [
+        "Haris Ahmed.",
+        "I build intelligent systems that survive production.",
+        "The toolkit that ships production.",
+        "AI / ML",
+        "Languages",
+        "Frameworks"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 12888,
+      "source": "[25]"
+    },
+    {
+      "id": 26,
+      "url": "https://www.tommyz.blog",
+      "page_title": "Tommy Zhang — AI Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Brief “things I built and ran” list, avoiding a sprawling résumé wall.",
+      "observed_headings": [
+        "Things I built and ran",
+        "Kubilo AI POS",
+        "Palate",
+        "Ephemera",
+        "What I'm working on"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 2068,
+      "source": "[26]"
+    },
+    {
+      "id": 27,
+      "url": "https://sohailmo.ai",
+      "page_title": "Forward deployed engineer at Together AI. Notes on production AI and adjacent thoughts.",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Production-AI writing and a stated role at Together AI.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 3366,
+      "source": "[27]"
+    },
+    {
+      "id": 28,
+      "url": "https://muhammad-sami.vercel.app",
+      "page_title": "Muhammad Sami builds serious AI systems, intelligent products, developer tools, automation workflows, and scalable full-",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "AI agent and product work with an end-to-end systems framing.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 8630,
+      "source": "[28]"
+    },
+    {
+      "id": 29,
+      "url": "https://folarin.dev",
+      "page_title": "Tutorials and walkthroughs on building AI systems: agents with LangChain and LangGraph, RAG, LLM integration, vector dat",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Technical tutorials act as proof of ability to explain a system.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 3433,
+      "source": "[29]"
+    },
+    {
+      "id": 30,
+      "url": "https://redreamality.com",
+      "page_title": "Explore Redreamality's personal blog and project showcase, featuring in-depth articles on software development, AI agent",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Personal blog paired with projects and open-source contributions.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 14383,
+      "source": "[30]"
+    },
+    {
+      "id": 31,
+      "url": "https://umesh-malik.com/about",
+      "page_title": "Umesh Malik is an AI engineer and software developer building GenAI applications, LLM-powered products, and scalable sys",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "About-page career context for a GenAI/software builder.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 4811,
+      "source": "[31]"
+    },
+    {
+      "id": 32,
+      "url": "https://kubaik.github.io",
+      "page_title": "Practical backend engineering, AI tooling, and developer career advice by Kubai Kevin — a software developer with 10+ ye",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Practical backend articles and AI-tooling writing as authority building.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 6559,
+      "source": "[32]"
+    },
+    {
+      "id": 33,
+      "url": "https://vzhukov.dev",
+      "page_title": "Insights, tutorials, and reflections on artificial intelligence, machine learning, software engineering, and mathematics",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Technical notes connect ML, software and mathematical reasoning.",
+      "observed_headings": [],
+      "retrieval": "direct-html",
+      "readable_characters": 5672,
+      "source": "[33]"
+    },
+    {
+      "id": 34,
+      "url": "https://www.princesingh.work",
+      "page_title": "Prince Singh | Founding Engineer & AI Architect | DSA Expert | AI System Design",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Production numbers and built systems are prominent; claims remain self-reported.",
+      "observed_headings": [
+        "Founding Engineer  ",
+        "Production systems, tuned to the last millisecond & dollar.",
+        "Every role, measured in real production numbers.",
+        "11 AI systems,400K+ users, live in production.",
+        "Products 10,000+ people actually use.",
+        "ARX - AI Architect You Can Talk To"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 13912,
+      "source": "[34]"
+    },
+    {
+      "id": 35,
+      "url": "https://priyanshupaul.vercel.app",
+      "page_title": "Priyanshu Paul — AI Engineer & Full-Stack Builder",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Shipped-project list precedes a tiered toolset.",
+      "observed_headings": [
+        "A request _travels_.",
+        "Things I've _shipped_.",
+        "NiDaan",
+        "Verdikt",
+        "NextHire",
+        "RadioAtlas"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4630,
+      "source": "[35]"
+    },
+    {
+      "id": 36,
+      "url": "https://portfolio-kappa-red-97.vercel.app",
+      "page_title": "Portfolio | Chirag Borse",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Agent-observability and MCP tools shown as distinct products.",
+      "observed_headings": [
+        "Building AI-native  ",
+        "AI Projects & Tools",
+        "Kova",
+        "KovaHub",
+        "MemGraph",
+        "MCP Guard"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4191,
+      "source": "[36]"
+    },
+    {
+      "id": 37,
+      "url": "https://aasherkamal.com/projects/aztrogent",
+      "page_title": "Aztrogent",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Project case study has Challenge / Build / Architecture / Lessons sections.",
+      "observed_headings": [
+        "Overview",
+        "The Challenge",
+        "What I Built",
+        "Technical Architecture",
+        "Core Stack",
+        "Key Technical Features"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 7038,
+      "source": "[37]"
+    },
+    {
+      "id": 38,
+      "url": "https://senanur-cetin.vercel.app",
+      "page_title": "Senanur Cetin | Data Scientist & AI Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Case studies foreground evaluation slices and deployed evidence.",
+      "observed_headings": [
+        "Machine learning that reports how it was measured.",
+        "Senanur Cetin",
+        "How much does each model catch in the slice a team can afford to review?",
+        "5 of the case studies are deployed and answering.",
+        "Selected work, with the evaluation published alongside it.",
+        "Start with the evidence closest to the role."
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11691,
+      "source": "[38]"
+    },
+    {
+      "id": 39,
+      "url": "https://visheshverse.com",
+      "page_title": "Vishesh Goyal | VisheshVerse",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Real-world build cards followed by engineering context.",
+      "observed_headings": [
+        "Building AI systems that actually ship.",
+        "AI Systems Builder",
+        "Full Stack Engineer",
+        "Published Researcher",
+        "Real-World Builds",
+        "VisheshVerse"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 18606,
+      "source": "[39]"
+    },
+    {
+      "id": 40,
+      "url": "https://rajkumarai.dev",
+      "page_title": "Raj Kumar Nelluri — AI/ML Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Named AI agents and domain-specific systems provide navigable work.",
+      "observed_headings": [
+        "MedEval — Clinical Triage AI",
+        "AI Financial Research Agent",
+        "CineNeuro — Neural Audience Intelligence",
+        "Enterprise RAG Chatbot",
+        "Here is a little background",
+        "Skills"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 13912,
+      "source": "[40]"
+    },
+    {
+      "id": 41,
+      "url": "https://kshitijbhatnagar.com",
+      "page_title": "Kshitij Bhatnagar, Software Engineer and AI Native Product Builder",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Individual project pages make a diverse portfolio inspectable.",
+      "observed_headings": [
+        "OrbitalSpace",
+        "Astrolenz",
+        "VideoNote",
+        "[LinkedIn Newsroom](https://kshitijbhatnagar.com/projects/linkedin-newsroom/)",
+        "[First to Apply](https://kshitijbhatnagar.com/projects/first-to-apply/)",
+        "[Inbox Triage](https://kshitijbhatnagar.com/projects/inbox-triage/)"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11349,
+      "source": "[41]"
+    },
+    {
+      "id": 42,
+      "url": "https://sumeetzankar.com",
+      "page_title": "Sumeet Zankar | AI Engineer — Autonomous Agents",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Operating fleet and product themes grouped as concrete deployments.",
+      "observed_headings": [
+        "The fleet, currently operating",
+        "And the same craft, at scale",
+        "Research & Insights",
+        "Audience Intelligence",
+        "Content & Analysis",
+        "AI Coaching"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 7327,
+      "source": "[42]"
+    },
+    {
+      "id": 43,
+      "url": "https://fchollet.com",
+      "page_title": "François Chollet - Personal Page",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Software, books, papers and essays have separate browseable shelves.",
+      "observed_headings": [
+        "Books",
+        "Deep Learning With Python, Second Edition",
+        "Deep Learning With Python, First Edition",
+        "Deep Learning With R",
+        "Software",
+        "Papers"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 9793,
+      "source": "[43]"
+    },
+    {
+      "id": 44,
+      "url": "https://mattbrooks.xyz",
+      "page_title": "Matt Brooks",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "Thoughts and Projects are separated, with a human “What I value” section.",
+      "observed_headings": [
+        "Thoughts",
+        "Projects",
+        "What I care about",
+        "What I'm currently working on",
+        "Other things I care about",
+        "What I value"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 5582,
+      "source": "[44]"
+    },
+    {
+      "id": 45,
+      "url": "https://rachpradhan.com",
+      "page_title": "Code intelligence for coding agents",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Selected work and talks show public communication alongside research.",
+      "observed_headings": [
+        "Rach Pradhan",
+        "Selected work",
+        "Research ideas, built into working systems.",
+        "Talks",
+        "Independent",
+        "Menlo.ai"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4126,
+      "source": "[45]"
+    },
+    {
+      "id": 46,
+      "url": "https://agstya.github.io",
+      "page_title": "Agastya Kommanamanchi | Forward-Deployed AI Engineering Leader",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Discovery → executable design → hard middle → measurement is explicit.",
+      "observed_headings": [
+        "Strategy to shipped systems.",
+        "Embedded with the problem. Accountable for the outcome.",
+        "Frame the real problem",
+        "Make it executable",
+        "Own the hard middle",
+        "Measure what changed"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 10635,
+      "source": "[46]"
+    },
+    {
+      "id": 47,
+      "url": "https://yeskendir2502.github.io",
+      "page_title": "Yeskendir Assankul — ML / MLOps Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Full ML lifecycle, FDE experience, and selected RAG work connected.",
+      "observed_headings": [
+        "Yeskendir  ",
+        "Engineer across the full ML lifecycle.",
+        "Where I've built things.",
+        "Forward Deployed Engineer",
+        "MLOps Engineer",
+        "Research Internships"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 11191,
+      "source": "[47]"
+    },
+    {
+      "id": 48,
+      "url": "https://jpalmer95.github.io",
+      "page_title": "Forward Deployed & Applied AI Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Professional experience, focus, and technical skills in context.",
+      "observed_headings": [
+        "Jonathan Korstad, CPWA",
+        "About Me",
+        "Current Focus:",
+        "Technical Skills",
+        "AI & Machine Learning",
+        "Development"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 4938,
+      "source": "[48]"
+    },
+    {
+      "id": 49,
+      "url": "https://akshita2k.github.io",
+      "page_title": "Akshita Sharma | Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "FDE-oriented impact narrative with problem and bottleneck descriptions.",
+      "observed_headings": [
+        "Hi, I am Akshita.",
+        "FDE energy: customer problems, shipped demos, real systems.",
+        "What I like building",
+        "10X-style impact, delivered safely.",
+        "What colleagues consistently noticed.",
+        "Start with a real problem."
+      ],
+      "retrieval": "jina",
+      "readable_characters": 30000,
+      "source": "[49]"
+    },
+    {
+      "id": 50,
+      "url": "https://ramstar3000.github.io/Portfolio",
+      "page_title": "Abhiram Vinjamuri | Forward Deployed Software Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Experience and technical project sections give hiring context.",
+      "observed_headings": [
+        "Hi, I'm",
+        "Abhiram Vinjamuri",
+        "About Me",
+        "Professional Experience",
+        "My Education",
+        "Other Experience"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 14708,
+      "source": "[50]"
+    },
+    {
+      "id": 51,
+      "url": "https://ishank-dev.github.io",
+      "page_title": "Ishank Sharma | Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Messy problem → built thing framing without buzzword overload.",
+      "observed_headings": [
+        "The messy part  ",
+        "Things I’ve  ",
+        "Making the waiting  ",
+        "From possibility.  ",
+        "A better memory for the team.",
+        "Also on my workbench."
+      ],
+      "retrieval": "jina",
+      "readable_characters": 8303,
+      "source": "[51]"
+    },
+    {
+      "id": 52,
+      "url": "https://davidabeatty.vercel.app",
+      "page_title": "David Beatty · Fractional AI Lead",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "Forward-deployed team leadership explained through services and working sessions.",
+      "observed_headings": [
+        "10,000 employees on AI.  ",
+        "My day job: leading a Forward Deployed Engineering team at a Fortune 500.",
+        "services",
+        "Fractional AI Lead",
+        "AI Assessment",
+        "The math I do on the call"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 12419,
+      "source": "[52]"
+    },
+    {
+      "id": 53,
+      "url": "https://tanzeel-portfolio-one.vercel.app",
+      "page_title": "Tanzeel Naveed Khan | Forward Deployed Engineer (FDE)",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "FDE title, full-stack/AI projects and “what I am hired to do” sections.",
+      "observed_headings": [
+        "Tanzeel NaveedKhan",
+        "Forward Deployed Engineer.",
+        "Selected Full Stack and AI Projects.",
+        "What I Am Hired to Do.",
+        "[Hire a Forward Deployed Engineer (FDE) One engineer inside your team, from the first conversation to production. Read more](https://tanzeel-portfolio-one.vercel.app/services/forward-deployed-engineer)",
+        "[AI Agent Development Services Agents that hold up in production, not prompts that demo well. Read more](https://tanzeel-portfolio-one.vercel.app/services/ai-agent-development)"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 15938,
+      "source": "[53]"
+    },
+    {
+      "id": 54,
+      "url": "https://ntezi.github.io",
+      "page_title": "Marius Ngaboyamahina — Senior Software & Forward Deployed Engineer",
+      "category": "FDE-labelled or role-adjacent",
+      "observed_feature": "FDE consultant work, progression and featured projects in one place.",
+      "observed_headings": [
+        "About Me",
+        "Education",
+        "Certifications",
+        "Current Roles",
+        "Digital Factory Manager",
+        "Forward Deployed Engineer — Consultant"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 21217,
+      "source": "[54]"
+    },
+    {
+      "id": 55,
+      "url": "https://asadullahshafique-devunity.vercel.app",
+      "page_title": "Asadullah Shafique — Agentic AI Systems Engineer",
+      "category": "adjacent AI/ML or engineering",
+      "observed_feature": "A “verified engineering evidence” path and flagship case studies.",
+      "observed_headings": [
+        "Verified engineering evidence",
+        "What are you here to evaluate?",
+        "Flagship Agentic AI Case Studies",
+        "What I Offer",
+        "Agentic AI Systems",
+        "Textile Industry Software (Texcot)"
+      ],
+      "retrieval": "jina",
+      "readable_characters": 24633,
+      "source": "[55]"
+    }
+  ]
+}

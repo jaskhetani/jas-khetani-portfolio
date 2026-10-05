@@ -10,3 +10,6 @@ Thumbs.db
 portfolio-preview.png
 portfolio-mobile-preview.png
 verification.json
+public/data/
+test-results/
+playwright-report/

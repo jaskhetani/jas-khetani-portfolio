@@ -1,23 +1,66 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Jas Khetani — CS student building AI systems, automation workflows, quantum/data projects, and field-tested product prototypes."
-    />
-    <meta name="theme-color" content="#ffffff" />
-    <title>Jas Khetani · AI Systems Portfolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jas Khetani — AI &amp; Software Engineering</title>
+<meta name="description" content="Jas Khetani builds practical AI systems, guardrailed copilots, and automation close to the people who use them. AI and forward-deployed engineering portfolio.">
+<meta name="theme-color" content="#fbfbf7">
+<link rel="stylesheet" href="/src/home.css"><link rel="stylesheet" href="/src/shared.css">
+</head>
+<body class="home-page"><div class="arrival" aria-hidden="true"><svg class="arrival-leaf" viewBox="0 0 64 64"><path d="M54 7C20 3 5 17 12 39C19 59 48 45 54 7Z" fill="#b96380"/><path d="M9 57Q27 31 48 14M26 33L19 21M34 25L45 28" fill="none" stroke="#694936" stroke-width="2"/></svg></div>
+<!-- Source: user-designated Downloads/jas-fde-portfolio-bundle. Editable content here; tree isolated in src/tree.js. -->
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page">
+<div class="atmosphere" aria-hidden="true">
+<svg class="mountains" viewBox="0 0 1440 420" preserveAspectRatio="none"><defs><linearGradient id="mountainMist" x2="0" y2="1"><stop stop-color="#889d97"/><stop offset="1" stop-color="#fbfbf7"/></linearGradient></defs><path fill="url(#mountainMist)" d="M0 310 Q80 290 185 181 L239 209 345 82 382 146 430 138 544 298 705 213 769 248 852 109 891 161 972 58 1074 194 1132 167 1248 299 1340 182 1440 254 V420 H0Z"/></svg>
+<svg class="mountains second" viewBox="0 0 1440 420" preserveAspectRatio="none"><path fill="url(#mountainMist)" d="M0 290 L164 206 236 233 355 93 394 163 449 142 614 285 719 211 834 289 955 114 994 146 1056 78 1180 255 1311 177 1440 287 V420 H0Z"/></svg>
+</div>
+<nav class="site-nav" aria-label="Main navigation"><a class="brand" href="/"><span class="seal" aria-hidden="true">JK</span><span>Jas Khetani<small>Engineering &amp; exploration</small></span></a><div class="nav-links"><a href="/#work">Projects</a><a href="/#skills">Skills</a><a href="/#about">Experience</a><a href="/journal">Journal</a><a href="/#ground">Contact</a></div></nav>
+<svg id="tree" aria-hidden="true"></svg>
+<main class="content" id="main">
+  <section class="section hero" id="top">
+    <p class="eyebrow">Jas Khetani / AI engineering in practice</p>
+    <h1>AI &amp; Software<br><em>Engineering.</em></h1>
+    <p class="lead">I build AI and automation that survive contact with real workflows—secure enough to trust, simple enough to use, and measured against the work they replace.</p>
+    <div class="actions"><a class="primary" href="#work">See selected work ↗</a><a class="secondary" href="#lab">Try a small experiment</a></div>
+    <p class="meta">Applied AI · Customer workflows · Secure systems</p>
+  </section>
+  <section class="section" id="work">
+    <div class="divider"></div><p class="eyebrow">01 / Selected work</p><h2>Selected Projects</h2>
+    <p>Three different kinds of constraint: protecting enterprise data, keeping an event moving, and testing whether an attractive ML result holds up. Figures below are reported in my résumé; where code or client data is private, I say so.</p>
+    <div class="grid work-grid">
+      <article class="card feature-card"><span class="tag">Internship · Applied AI · Private implementation</span><h3>Multi-tenant AI Copilot</h3><p>At Precisio Technologies, I worked on a multi-tenant AI copilot in Python, FastAPI, and MCP. The design kept raw database access out of the model’s reach, then tested the outputs against prompt-injection and data-leakage risks.</p><p class="outcome"><strong>Reported outcome</strong> · 45% faster retrieval; PDF transcription reduced data-entry time by 80%.</p><details><summary>What I would show in a case study</summary><p>The approved-query boundary, tenant isolation, adversarial tests, retrieval evaluation, and what changed after real user feedback. Client code and data are not public.</p></details></article>
+      <article class="card"><span class="tag">Founder / JAS · Customer workflow</span><h3>QR Event Ticketing</h3><p>I built a QR ticketing workflow for an event with 800+ attendees. The difficult part was not generating codes; it was reconciling scanners, pass types, and patchy connectivity when people were already at the door.</p><p class="outcome"><strong>Lesson</strong> · A working MVP still needs a safer concurrency and offline story.</p><details><summary>Where the next version goes</summary><p>Move the source of truth to a transactional database; make scans idempotent, queue offline events, and resolve conflicting check-ins explicitly. This is a design reflection, not a claim that those changes are already shipped.</p></details></article>
+      <article class="card"><span class="tag">Independent research · Data / ML</span><h3>Portfolio Exposure Classifier</h3><p>My quantum-portfolio exposure classifier used rolling regressions, sector proxies, and market controls to test whether the basket behaved more like technology or defence/aerospace.</p><p class="outcome"><strong>Reported check</strong> · 23 of 24 stock-scenario train/holdout results were stable across tested windows.</p><details><summary>What I would publish next</summary><p>The reproducible notebook, split rules, sensitivity plots, and a clear explanation of what the classifier cannot establish. No trading advice.</p></details></article>
+      <article class="card"><span class="tag">Personal systems · Working proof</span><h3>Local-first Agent Workflows</h3><p>I use local-first agents to turn scattered school commitments into tracked work. The useful part is the boring part: source-of-truth checks, permission boundaries, recurring deadlines, and graceful failure.</p><p class="outcome"><strong>Public trace</strong> · <a href="https://github.com/jaskhetani/jaskhetani">GitHub profile &amp; project map ↗</a></p><details><summary>What belongs in the eventual case study</summary><p>An architecture sketch, anonymized workflow, failure modes, and a before/after accountability measure—without publishing private school or account data.</p></details></article>
+    </div>
+  </section>
+<section class="section" id="skills"><p class="eyebrow">Capabilities / Applied in context</p><h2>Technical Skills</h2><p>Tools organized around the work they support—not a wall of logos.</p><div class="grid"><article class="card"><h3>AI applications</h3><p>RAG, MCP tools, retrieval evaluation, prompt-injection testing, and access boundaries.</p></article><article class="card"><h3>Backend &amp; data</h3><p>Python, SQL, FastAPI, data workflows, and reproducible model evaluation.</p></article><article class="card"><h3>Delivery &amp; operations</h3><p>Docker, GitHub, documentation, workflow mapping, and failure-recovery design.</p></article><article class="card"><h3>Technical communication</h3><p>Customer discovery, teaching, technical writing, and making trade-offs understandable.</p></article></div></section>
+<section class="section" id="practice">
+    <p class="eyebrow">02 / Approach</p><h2>Engineering Approach</h2><p>Customer-facing engineering begins with the workflow. My approach connects discovery, implementation, reliability testing, and feedback.</p>
+    <ol class="process-list"><li><span>01 / Discover</span><strong>Watch the work.</strong><p>Find the friction, the owner, and the non-negotiable constraints.</p></li><li><span>02 / Shape</span><strong>Make the smallest honest prototype.</strong><p>Define what the system will do—and where it must stop.</p></li><li><span>03 / Harden</span><strong>Test the uncomfortable path.</strong><p>Tenant boundaries, bad inputs, failure recovery, handoff, and cost.</p></li><li><span>04 / Learn</span><strong>Measure use, not applause.</strong><p>Observe the workflow after launch and document what changed.</p></li></ol>
+  </section>
+  <section class="section" id="lab">
+    <p class="eyebrow">03 / Small interactive studio</p><h2>Interactive AI Safety Demo</h2><p>A tiny, deterministic sketch of a useful AI boundary. It is <strong>not</strong> the Precisio system or a live AI service: choose a request to see what a deliberately narrow tool may return.</p>
+    <div class="demo" aria-label="Example of a scoped AI data-access boundary"><div class="demo-controls"><button type="button" data-case="summary" aria-pressed="true">Approved summary</button><button type="button" data-case="raw" aria-pressed="false">Raw customer rows</button><button type="button" data-case="injection" aria-pressed="false">Prompt override</button></div><div class="demo-screen" role="status" aria-live="polite"><span class="screen-label">SCOPED RESPONSE / EXAMPLE DATA</span><h3 id="demo-title">A summary can be useful without exposing a record.</h3><p id="demo-output">Allowed: return an aggregate, sourced from a pre-approved view. Example: “12 tickets were resolved this week.” No row-level customer data is sent to the assistant.</p><small id="demo-reason">Boundary: the tool only exposes an approved aggregate; it never runs arbitrary SQL.</small></div></div><p class="placeholder">A front-end teaching sketch with invented sample data. It makes no network requests and processes no personal information.</p>
+  </section>
+  <section class="section" id="about">
+    <p class="eyebrow">04 / The person behind the system</p><h2>Experience &amp; Education</h2><p>I study computer science at Fairleigh Dickinson University, concentrating in data science alongside mathematics and electrical engineering technology. Before working in AI, I taught dance, performed, and practiced martial arts—experience that still shapes how I read a room, explain a trade-off, and build with people rather than for an abstract user.</p>
+    <div class="timeline"><article><div class="date">2026 · PRECISIO TECHNOLOGIES</div><h3>AI/ML Engineer Intern</h3><p>Multi-tenant copilot, secure retrieval, prompt-injection testing, and PDF workflow automation.</p></article><article><div class="date">2023–PRESENT · JAS</div><h3>Founder and product builder</h3><p>Customer workflows, QR ticketing, and deadline-shaped delivery.</p></article><article><div class="date">EXPECTED 2027 · FAIRLEIGH DICKINSON UNIVERSITY</div><h3>B.S. Computer Science</h3><p>Data science concentration; minors in mathematics and electrical engineering technology.</p></article></div>
+    <p class="small-print">Methods and tools: Python, SQL, FastAPI, MCP, RAG, evaluations, guardrails, Docker, and a healthy respect for documentation. My résumé reports additional detail; public project links are added as they become ready.</p>
+  </section>
+  <section class="section" id="writing">
+    <p class="eyebrow">05 / Writing</p><h2>Technical Writing</h2><p>I began by translating quantum research into plain language. The next chapter is closer to the field: architecture decisions, mistakes worth keeping, and what happened after a prototype met a user.</p>
+    <div class="journal-preview"><span class="tag">Published on Medium · 2025</span><h3>Microsoft’s Majorana 1 — Media Manipulation or Scientific Breakthrough?</h3><p>A close reading of a consequential technical claim; curiosity paired with skepticism, not cynicism.</p><a href="/read?post=majorana-1">Open the reading scroll →</a></div>
+    <div class="actions"><a class="primary" href="/journal">Enter the journal ↗</a><a class="secondary" href="https://medium.com/@jaskhetani">All published writing on Medium ↗</a></div>
+  </section>
+</main>
+<footer class="ground" id="ground"><div class="inner"><p class="eyebrow">06 / Common ground</p><h2>Contact</h2><p>For an AI engineering role, a working session, or a thoughtful collaboration.</p><div class="contact-row"><a href="mailto:j.khetani@student.fdu.edu">Email ↗</a><a href="https://github.com/jaskhetani">GitHub ↗</a><a href="https://www.linkedin.com/in/jas-khetani/">LinkedIn ↗</a><a href="/journal">Journal ↗</a></div><p class="colophon">Jas Khetani · Jersey City, NJ<br>Practical systems. Human-scale attention.</p></div></footer>
+</div>
+<canvas id="petal-air" aria-hidden="true"></canvas>
+
+
+
+<script type="module" src="/src/home.js"></script></body>
 </html>
