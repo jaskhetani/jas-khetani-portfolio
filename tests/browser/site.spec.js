@@ -9,7 +9,7 @@ for(const width of widths){
   const state=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth>innerWidth,connected:treeStudy.geometry.connections.every(c=>c.error===0),ground:treeStudy.geometry.groundY===document.querySelector('.ground').offsetTop+84,flowers:treeStudy.geometry.flowerCount,mainThreadMs:treeStudy.geometry.buildMs,rasterMs:treeStudy.geometry.rasterMs}));
   console.log(width,JSON.stringify(state));expect(state.overflow).toBe(false);expect(state.connected).toBe(true);expect(state.ground).toBe(true);expect(state.flowers).toBeGreaterThan(20000);
   await waitForCanopyImages(page);await page.screenshot({path:`test-results/home-${width}.png`});
-  await page.getByRole('button',{name:'Prompt override'}).click();await expect(page.locator('#demo-output')).toContainText('Denied:');
+  await expect(page.locator('#lab')).toHaveCount(0);await expect(page.getByText('Made with a strong helping hand from Vera Hermes')).toBeVisible();
   await page.locator('details summary').first().click();await expect(page.locator('details').first()).toHaveAttribute('open','');
   await page.waitForFunction(()=>treeStudy.geometry.groundY===document.querySelector('.ground').offsetTop+84);
   expect(errors).toEqual([]);

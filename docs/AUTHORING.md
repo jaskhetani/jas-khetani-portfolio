@@ -1,40 +1,71 @@
-# Private writing room setup
+# Owner writing room setup
 
-## What works without setup
+## Storage model
 
-The portfolio, journal, imported articles, search, filters, scroll reader, and animations are static. `/study` shows an honest configuration message until the server is configured; it never pretends that browser-only drafts have been published.
+The portfolio repository is public. It contains the site, imported public essays, and only explicitly published project notes.
+
+Private draft source lives in a separate repository:
+
+```text
+jaskhetani/jas-khetani-portfolio-notes
+```
+
+The server verifies that repository’s exact identity and `private: true` state before every note list, read, or save. A draft save writes only there. Publishing first verifies the private source commit, then verifies that `jaskhetani/jas-khetani-portfolio` is the expected public repository and copies the approved note to `content/notes/<slug>.json`. That public commit triggers Vercel.
+
+Do not make the draft repository public. Build exclusion is not a privacy boundary, and Git history persists. The portfolio repository is likewise expected to remain public; authoring fails closed if either repository’s configured visibility no longer matches this two-repository model.
 
 ## One-time GitHub OAuth setup
 
-1. Deploy the repository to Vercel and decide the canonical HTTPS hostname.
-2. Create a GitHub OAuth app in your own account: https://github.com/settings/developers
-3. Homepage URL: your canonical HTTPS origin.
-4. Authorization callback URL: `https://YOUR-HOST/api/author?action=callback` — register this exact value, including the query string. GitHub rejects the runtime `redirect_uri` when only `/api/author` is registered.
-5. Add these server-only Environment Variables in Vercel for **Production**, never with a `VITE_` prefix:
-   - `APP_ORIGIN`: exact `https://YOUR-HOST`, no trailing slash/path.
-   - `GITHUB_CLIENT_ID`: OAuth app's client ID.
-   - `GITHUB_CLIENT_SECRET`: OAuth app secret, entered directly in Vercel's masked settings.
-   - `SESSION_SECRET`: cryptographically random secret of at least 32 characters, generated in your password manager and stored only in the server environment.
-6. Redeploy, visit `/study`, and authorize your GitHub account. Only GitHub numeric user ID `82095478` (Jas) can enter. Neither a guessed URL nor another GitHub login is sufficient.
-7. Save a draft; check it exists in the private repo but is absent from `/data/catalog.json`. Publish explicitly, wait for Vercel's Git-triggered deployment, and check the public article.
+1. Deploy the public portfolio repository to Vercel and choose the canonical HTTPS hostname.
+2. Create a classic GitHub OAuth app at https://github.com/settings/developers.
+3. Set its homepage to the canonical HTTPS origin.
+4. Set the authorization callback to the exact value below, including the query string:
 
-**Never paste client secrets or session secrets into chat or source files.** OAuth setup is intentionally not fabricated. Live OAuth and publication must be verified on the deployed canonical hostname.
+   ```text
+   https://YOUR-HOST/api/author?action=callback
+   ```
+
+5. Add these server-only variables in Vercel for **Production**. Never prefix them with `VITE_`:
+   - `APP_ORIGIN` — exact `https://YOUR-HOST`, with no trailing slash or path.
+   - `DRAFT_REPO` — exact value `jaskhetani/jas-khetani-portfolio-notes`.
+   - `GITHUB_CLIENT_ID` — OAuth app client ID.
+   - `GITHUB_CLIENT_SECRET` — OAuth app secret, entered directly into Vercel’s masked settings.
+   - `SESSION_SECRET` — cryptographically random value of at least 32 characters, stored only in the server environment.
+6. Redeploy, visit `/study`, and sign in with GitHub. Only GitHub numeric user ID `82095478` can enter.
+7. Save a draft. Confirm it exists only in the private notes repository and remains absent from the public portfolio and `/data/catalog.json`.
+8. Publish it. Confirm a public note commit appears, Vercel deploys that commit, and the journal links to the local reading scroll.
+
+**Never paste the OAuth secret, session secret, or access tokens into chat or source files.**
 
 ## Permission trade-off
 
-This implementation uses a classic GitHub OAuth app with `repo` scope because the target repository is private. GitHub does not narrow that classic scope to a single repository: the consent grants wider repository access than this app's fixed endpoint uses. The server only targets `jaskhetani/jas-khetani-portfolio/content/notes` on `main`. Access tokens are AES-256-GCM encrypted inside Secure/HttpOnly/SameSite cookies and are never returned to JavaScript. Sessions expire in two hours. For stricter least privilege, migrate to a repository-installed GitHub App before broader deployment; do not mislabel classic OAuth as repository-scoped.
+The classic OAuth app requests `repo` because it must access the private draft repository. GitHub does not narrow that classic scope to a single repository. The server code itself is fixed to:
 
-## Draft privacy
+- private source: `jaskhetani/jas-khetani-portfolio-notes/content/notes`
+- public target: `jaskhetani/jas-khetani-portfolio/content/notes`
 
-Keep the repository **private**. Build exclusion is not a substitute for GitHub privacy; note drafts remain in Git history. Anyone with repository access can see drafts/history, and making the repo public would expose historical drafts. Never put passwords, client data, or private account records in a note. A published note can be moved back to draft, but prior public deployments and Git history are not erased by unpublishing.
+Access tokens are encrypted into AES-256-GCM Secure/HttpOnly/SameSite cookies, never returned to browser JavaScript, and revoked on sign-out when GitHub is available. Sessions expire after two hours. State, PKCE, canonical-origin checks, owner-ID verification, and CSRF validation protect the flow.
 
-## Publishing behavior
+A repository-installed GitHub App is the planned least-privilege successor. Until then, do not describe classic OAuth as repository-scoped.
 
-Saving creates/updates a JSON file in GitHub using a SHA concurrency check, then reads back the exact committed target. Conflicting versions are rejected instead of overwriting silently. A successful save means GitHub confirmed it—not that Vercel has finished rebuilding. Draft-only commits may also trigger builds; those drafts are excluded from public output.
+## Authoring behavior
 
-There is no database, insecure browser token field, client-side password, or hidden backdoor. `/study` is unlisted and marked noindex, with real server authentication for every protected operation. Preview deployments use a different origin and are not authorized production writing surfaces. Local Vite is suitable for UI testing, not live OAuth.
+- New note slugs must start with `note-`; imported Medium slugs cannot use that namespace.
+- Saving a draft writes and reads back the exact private GitHub commit with a SHA concurrency check.
+- Publishing writes the private source, then copies the server-generated note schema to the public repository and verifies the public commit.
+- Moving a published note back to draft requires explicit confirmation. The private source is saved as a draft, the public file is deleted, and its absence is verified.
+- If private persistence succeeds but public synchronization fails, the API says so explicitly and returns the verified private revision. It never falsely reports that nothing was saved. Every retry re-reads the actual public copy and reconciles it to the requested state, so a failed publication or unpublication does not become permanent drift.
+- Unpublishing removes the current public file; it does **not** erase earlier public Git history or deployments.
+- A successful publication means GitHub confirmed the public commit. Vercel may still be building it.
 
-Sources:
+There is no client-side password, browser token field, database, or hidden-URL security claim. `/study` is unlisted and marked `noindex`, but real security comes from server-side authentication and authorization. Preview deployments use a different origin and are not production authoring surfaces.
+
+## Content safety
+
+Never put credentials, client data, private employer information, regulated records, or private account details in a note. The draft repository is private, but Git history and authorized-account access remain real exposure surfaces. Once content is published, assume it is permanently public.
+
+## Primary references
+
 - https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
 - https://docs.github.com/en/rest/repos/contents#create-or-update-file-contents
 - https://vercel.com/docs/functions/runtimes/node-js

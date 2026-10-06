@@ -4,14 +4,14 @@ const published={slug:'note-live',title:'Live note',summary:'',body:'Public body
 const draft={slug:'note-draft',title:'Draft note',summary:'',body:'Draft body',status:'draft',publishedAt:null};
 function gate(){let open;const promise=new Promise(r=>open=r);return {promise,open};}
 async function mockApi(page){
- const files={'note-live':{note:published,sha:'1'.repeat(40)},'note-draft':{note:draft,sha:'2'.repeat(40)}},api={files,saves:[],gates:{},failList:false};let n=2;
+ const files={'note-live':{note:published,sha:'1'.repeat(40)},'note-draft':{note:draft,sha:'2'.repeat(40)}},api={files,saves:[],gates:{},failList:false,failSavePartial:false,requireUnpublishOnce:false,staleLoad:false};let n=2;
  await page.route(url=>url.pathname==='/api/author',async route=>{
   const url=new URL(route.request().url()),action=url.searchParams.get('action');
   const held=api.gates[action];if(held){delete api.gates[action];await held.promise;}
   if(action==='session')return route.fulfill({json:{login:'jaskhetani',csrf:'csrf-token'}});
   if(action==='notes')return api.failList?route.fulfill({status:502,json:{error:'Unable to list notes'}}):route.fulfill({json:{notes:Object.entries(files).map(([slug,f])=>({slug,sha:f.sha}))}});
-  if(action==='note'){const f=files[url.searchParams.get('slug')];return route.fulfill({json:{note:f.note,sha:f.sha}});}
-  if(action==='save'){const body=route.request().postDataJSON();api.saves.push(body);const sha=String(++n).repeat(40).slice(0,40);const note={...body,publishedAt:files[body.slug]?.note.publishedAt||null};delete note.sha;delete note.unpublish;files[body.slug]={note,sha};return route.fulfill({json:{note,sha,commit:'b'.repeat(40)}});}
+  if(action==='note'){const f=files[url.searchParams.get('slug')],publicPresent=f.note.status==='published';return route.fulfill({json:{note:f.note,sha:f.sha,publicPresent,publicSynced:!api.staleLoad}});}
+  if(action==='save'){const body=route.request().postDataJSON();api.saves.push(body);if(api.requireUnpublishOnce&&!body.unpublish){api.requireUnpublishOnce=false;return route.fulfill({status:409,json:{error:'Public copy exists.',unpublishRequired:true,publicPresent:true}});}const sha=String(++n).repeat(40).slice(0,40);const note={...body,publishedAt:files[body.slug]?.note.publishedAt||null};delete note.sha;delete note.unpublish;files[body.slug]={note,sha};if(api.failSavePartial){api.failSavePartial=false;return route.fulfill({status:502,json:{error:'Private source saved; public sync failed. Retry.',saved:true,note,sha,publicState:'unknown',publicSynced:false}});}return route.fulfill({json:{note,sha,commit:'b'.repeat(40),publicPresent:note.status==='published',publicSynced:true}});}
   return route.fulfill({status:404,json:{error:'Unknown'}});
  });
  return api;
@@ -67,6 +67,22 @@ test('a list refresh failure after a verified save reports the save as successfu
  await page.getByRole('button',{name:'Save draft'}).click();
  await expect(page.locator('#editor-status')).toContainText('Draft saved and verified');await expect(page.locator('#editor-status')).toContainText('could not refresh');
  await expect(page.locator('#note-picker')).toHaveValue('note-fresh-idea');await expect(page.locator('#note-picker')).toBeEnabled();await expect(page.locator('#note-slug')).toHaveJSProperty('readOnly',true);
+});
+
+test('a partial unpublish failure stays honest and can be retried from the editor',async({page})=>{
+ const api=await open(page);await page.locator('#note-picker').selectOption('note-live');await expect(page.locator('#note-state')).toContainText('PUBLISHED');
+ const seen=dialogs(page,[true,true]);api.failSavePartial=true;await page.locator('#note-body').fill('Changed');await page.getByRole('button',{name:'Save draft'}).click();
+ await expect(page.locator('#editor-status')).toContainText('public sync failed');await expect(page.locator('#note-state')).toContainText('needs reconciliation');expect(api.saves[0]).toMatchObject({status:'draft',unpublish:true});const partialSha=api.files['note-live'].sha;
+ await page.getByRole('button',{name:'Save draft'}).click();await expect(page.locator('#editor-status')).toContainText('Draft saved and verified');expect(seen[1]).toMatch(/unresolved public sync/);expect(api.saves[1]).toMatchObject({status:'draft',unpublish:true,sha:partialSha});await expect(page.locator('#note-state')).toContainText('a private draft');
+});
+
+test('loading a stale public copy reports reconciliation instead of claiming it is published',async({page})=>{
+ const api=await open(page);api.staleLoad=true;await page.locator('#note-picker').selectOption('note-live');await expect(page.locator('#editor-status')).toContainText('needs reconciliation');await expect(page.locator('#note-state')).toContainText('public state needs reconciliation');await expect(page.locator('#note-state')).not.toContainText('PUBLISHED on the public journal');
+});
+
+test('an unexpected public copy can be confirmed and reconciled without publishing first',async({page})=>{
+ const api=await open(page);api.requireUnpublishOnce=true;const seen=dialogs(page,[true]);await page.locator('#note-title').fill('Recovered draft');await page.locator('#note-body').fill('Private body');await page.getByRole('button',{name:'Save draft'}).click();
+ await expect(page.locator('#editor-status')).toContainText('Draft saved and verified');expect(seen[0]).toMatch(/public copy.*already exists/i);expect(api.saves).toHaveLength(2);expect(api.saves[0].unpublish).toBeUndefined();expect(api.saves[1]).toMatchObject({status:'draft',unpublish:true});
 });
 
 test('a slug outside the note namespace is rejected before any request',async({page})=>{

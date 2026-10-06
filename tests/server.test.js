@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync } from 'node:fs';
-const env={APP_ORIGIN:'https://portfolio.example',GITHUB_CLIENT_ID:'test-client',GITHUB_CLIENT_SECRET:'test-client-secret',SESSION_SECRET:'test-session-secret-with-at-least-32-characters'};
+const env={APP_ORIGIN:'https://portfolio.example',GITHUB_CLIENT_ID:'test-client',GITHUB_CLIENT_SECRET:'test-client-secret',SESSION_SECRET:'test-session-secret-with-at-least-32-characters',DRAFT_REPO:'jaskhetani/jas-khetani-portfolio-notes'};
 function response(){return {headers:{},setHeader(k,v){this.headers[k]=v},end(s){this.body=s}}}
 test('OAuth verifies state and only admits the exact owner account',async()=>{
  const {createHandler}=await import('../api/author.js');

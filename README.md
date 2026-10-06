@@ -1,51 +1,109 @@
-# Jas Khetani — Portfolio & Mountain Reading Room
+# Jas Khetani — AI & Software Engineering Portfolio
 
-A Vercel-ready, multi-page portfolio rebuilt from the user-designated `Downloads/jas-fde-portfolio-bundle/`. The original blossom geometry and paper/rose/wood palette are retained; the obsolete React site is not the design source.
+A public, recruiter-facing portfolio for Jas Khetani’s applied-AI, software-engineering, and customer-workflow work. The experience pairs a blossom-tree homepage with a quiet mountain-temple journal, while keeping the information architecture conventional enough to scan quickly.
+
+**Live site:** [jas-khetani-portfolio.vercel.app](https://jas-khetani-portfolio.vercel.app/)
+
+**Journal:** [jas-khetani-portfolio.vercel.app/journal](https://jas-khetani-portfolio.vercel.app/journal)
+
+**Source:** [github.com/jaskhetani/jas-khetani-portfolio](https://github.com/jaskhetani/jas-khetani-portfolio)
+
+## What the site includes
+
+- A recruiter-readable homepage organized around selected work, technical skills, engineering approach, experience, education, writing, and contact.
+- A procedural blossom tree with a dense rasterized canopy, bounded petal animation, reduced-motion support, and responsive geometry.
+- A separate mountain-temple journal with search, topic filters, and scroll-inspired article cards.
+- Ten imported Medium essays rendered in a sanitized on-site reader, with the original publication retained as attribution.
+- Owner-written project notes that appear publicly only after an explicit publish action.
+- An unlisted `/study` writing room protected by GitHub OAuth, owner-ID verification, encrypted server-only sessions, CSRF checks, and GitHub SHA concurrency controls.
+- A multi-page Vite build deployed automatically to Vercel from `main`.
+
+The retired synthetic AI-safety demo was removed from the homepage. The portfolio now favors evidence from real work and writing over a small simulation that did not materially strengthen the story.
 
 ## Routes
 
-- `/` — AI & Software Engineering, projects, skills, approach, demo, experience, writing, contact.
-- `/journal` — mountain-temple reading shelf with search and theme filters.
-- `/read?post=majorana-1` — full on-site article in a reading scroll; text-size controls, contents, print, reading progress.
-- `/study` — unlisted, authenticated owner-only mini-blog editor. No drafts or access tokens are bundled into public pages. Hidden is **not** the security boundary.
+- `/` — portfolio homepage
+- `/journal` — searchable writing archive
+- `/read?post=<slug>` — on-site reading scroll
+- `/study` — owner-only project-note editor; deliberately absent from public navigation and search indexing
+- `/api/author` — Vercel serverless OAuth and authoring endpoint
 
-## Development
+## Architecture
 
-Node 22.12+ and npm are required. Dependencies are pinned in package-lock.json.
+```text
+Public browser
+  ├─ Vite pages and shared design system
+  ├─ generated catalog + sanitized article JSON
+  └─ Vercel Function: /api/author
+         ├─ GitHub OAuth + PKCE/state
+         ├─ encrypted HttpOnly session + CSRF validation
+         ├─ private draft repo: jas-khetani-portfolio-notes
+         └─ public publish target: jas-khetani-portfolio/content/notes
 
-```sh
-npm ci
-npm run dev
-npm test
-npm run build
-npm run preview
+GitHub main push → GitHub Actions → Vercel production deployment
 ```
 
-`npm run test:e2e` runs the production build against installed Microsoft Edge. Set up that browser on CI first. Build before running the browser suite. Vite dev serves the same author API in its fail-closed/unconfigured state; real OAuth requires the canonical HTTPS Vercel origin (not localhost).
+The repository you are reading is intentionally **public**. It contains the site, imported public essays, and only those project notes that were explicitly published. Draft source lives in a separate private repository and is re-verified as private before every protected read or write. Publishing copies the approved note into this repository; that public commit triggers the next Vercel deployment.
 
-## Vercel
+Build-time content handling uses `marked` plus `sanitize-html`. The browser preview uses `marked` plus DOMPurify. Drafts are excluded, scripts and embeds are stripped, tracking pixels are removed, source links must use HTTPS, and owner-note slugs use the reserved `note-` namespace.
 
-Live production: **https://jas-khetani-portfolio.vercel.app/**. Import **jaskhetani/jas-khetani-portfolio**, production branch **main**, framework **Vite**.
+## Local development
+
+Requirements: Node.js 20+ and npm.
+
+```bash
+npm ci
+npm run dev
+```
+
+Useful commands:
+
+```bash
+npm test          # Node security, content, authoring, and structure tests
+npm run build     # Generate content and build every route
+npm run test:e2e  # Production-build browser tests in Microsoft Edge
+```
+
+## Deployment
+
+Vercel builds the project with:
+
+- Framework: Vite
 - Install: `npm ci`
 - Build: `npm run build`
 - Output: `dist`
-- Repository root: `.`
-- Vercel automatically recognizes `api/author.js` as a Node function. Do not deploy only the dist folder if you want authoring.
+- Production branch: `main`
 
-The public portfolio and journal need **no secrets**. The private writing room is configured in production; follow [docs/AUTHORING.md](docs/AUTHORING.md) to rotate or reproduce its GitHub OAuth and Vercel environment setup. Automated tests use a simulated GitHub provider, while the production owner sign-in has also been verified manually.
+Every pushed commit is verified in GitHub Actions. Vercel then deploys a successful `main` build to the production URL. See [docs/VERIFICATION.md](docs/VERIFICATION.md) for the exercised checks.
 
-## Content & editing
+## Owner authoring
 
-- `index.html`: editable homepage copy. `src/home.css` and `src/shared.css`: styling.
-- `src/tree.js`: source-bundle connected geometry and bounded petals. `src/blossoms.worker.js`: off-main-thread blossom rasterization. Unsupported browsers use a chunked fallback; content never waits for artwork.
-- `journal.html`, `read.html`, `study.html`: separate documents, not homepage scroll sections.
-- `content/medium/*.json`: ten actual full public-feed article bodies, attribution, code, and image references. No invented article text. [Import limits](docs/SOURCES.md).
-- `content/notes/*.json`: private GitHub-backed drafts/published Markdown notes. Keep this repository private.
-- `scripts/build-content.js`: sanitizes HTML, excludes drafts, creates a small catalog and per-article JSON in `public/data`. These are regenerated, not hand-edited.
-- `docs/research/`: historical 55-site design research. Its poetic heading recommendations are superseded by this rebuild's explicit recruiter-facing headings.
+The production writing room is configured at `/study`. Its server-side environment requires:
 
-No analytics, third-party fonts, live LLM calls, or Medium tracking pixels are shipped. Article images are lazy-loaded from their original sources. The interactive AI demo is labeled synthetic and is not an employer product.
+- `APP_ORIGIN`
+- `DRAFT_REPO`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+- `SESSION_SECRET`
 
-## Before public launch
+`DRAFT_REPO` must equal the fixed private repository `jaskhetani/jas-khetani-portfolio-notes`; the server fails closed if its exact identity or private visibility cannot be verified. Publication separately verifies that this portfolio repository has the expected public identity before writing.
 
-Verify permission to publish employer/client descriptions and resume-reported performance metrics. This repo remains private, but a Vercel deployment may be public. Check the current availability of original article image hosts and review the deployment hostname, OAuth callback, and owner-only access on the deployed site.
+The classic OAuth app currently requests `repo` because it must reach the private draft repository. GitHub does not narrow that classic scope to one repository. The endpoint itself is fixed to the two repositories above and never returns the OAuth token to client JavaScript. For setup, operating details, failure semantics, and security limitations, read [docs/AUTHORING.md](docs/AUTHORING.md).
+
+Never commit secrets, private employer/client material, account data, or credentials here—or to the draft repository.
+
+## Future plans
+
+- Publish deeper, permission-safe case studies with architecture diagrams, measurable outcomes, and explicit trade-offs.
+- Grow the field-note journal with original post-deployment lessons rather than generic AI commentary.
+- Replace classic OAuth with a repository-installed GitHub App for tighter, repository-specific permissions.
+- Add a custom domain and durable ownership metadata while preserving the current Vercel deployment path.
+- Self-host or deliberately archive article imagery that currently depends on original Medium-hosted assets.
+- Keep reducing tree raster time and add visual-regression checks without thinning the blossom canopy or weakening reduced-motion behavior.
+- Continue accessibility audits for keyboard navigation, contrast, semantic structure, and long-form reading comfort.
+
+## Credits
+
+Designed, written, and owned by **Jas Khetani**—with a strong helping hand from **Vera Hermes, his Hermes Agent**, across research synthesis, design engineering, implementation, testing, security review, and deployment.
+
+The collaboration is credited plainly; responsibility for what is published remains Jas’s.
