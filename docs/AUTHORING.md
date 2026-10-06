@@ -9,7 +9,7 @@ The portfolio, journal, imported articles, search, filters, scroll reader, and a
 1. Deploy the repository to Vercel and decide the canonical HTTPS hostname.
 2. Create a GitHub OAuth app in your own account: https://github.com/settings/developers
 3. Homepage URL: your canonical HTTPS origin.
-4. Authorization callback URL: `https://YOUR-HOST/api/author` (the implementation adds `?action=callback` to the redirect URI).
+4. Authorization callback URL: `https://YOUR-HOST/api/author?action=callback` — register this exact value, including the query string. GitHub rejects the runtime `redirect_uri` when only `/api/author` is registered.
 5. Add these server-only Environment Variables in Vercel for **Production**, never with a `VITE_` prefix:
    - `APP_ORIGIN`: exact `https://YOUR-HOST`, no trailing slash/path.
    - `GITHUB_CLIENT_ID`: OAuth app's client ID.
