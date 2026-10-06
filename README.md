@@ -25,14 +25,14 @@ npm run preview
 
 ## Vercel
 
-Import **jaskhetani/jas-khetani-portfolio**, production branch **main**, framework **Vite**.
+Live production: **https://jas-khetani-portfolio.vercel.app/**. Import **jaskhetani/jas-khetani-portfolio**, production branch **main**, framework **Vite**.
 - Install: `npm ci`
 - Build: `npm run build`
 - Output: `dist`
 - Repository root: `.`
 - Vercel automatically recognizes `api/author.js` as a Node function. Do not deploy only the dist folder if you want authoring.
 
-The public portfolio and journal need **no secrets**. To activate the private writing room, follow [docs/AUTHORING.md](docs/AUTHORING.md). Configuration and live OAuth sign-in remain deployment steps; tests use a simulated GitHub provider and are not a claim of a live account session.
+The public portfolio and journal need **no secrets**. The private writing room is configured in production; follow [docs/AUTHORING.md](docs/AUTHORING.md) to rotate or reproduce its GitHub OAuth and Vercel environment setup. Automated tests use a simulated GitHub provider, while the production owner sign-in has also been verified manually.
 
 ## Content & editing
 
