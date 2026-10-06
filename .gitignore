@@ -13,3 +13,6 @@ verification.json
 public/data/
 test-results/
 playwright-report/
+
+.vercel
+.env*
