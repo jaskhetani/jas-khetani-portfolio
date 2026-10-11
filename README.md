@@ -2,20 +2,20 @@
 
 A public, recruiter-facing portfolio for Jas Khetani’s applied-AI, software-engineering, and customer-workflow work. The experience pairs a blossom-tree homepage with a quiet mountain-temple journal, while keeping the information architecture conventional enough to scan quickly.
 
-**Live site:** [jas-khetani-portfolio.vercel.app](https://jas-khetani-portfolio.vercel.app/)
+**Live site:** [jaskhetani.vercel.app](https://jaskhetani.vercel.app/)
 
-**Journal:** [jas-khetani-portfolio.vercel.app/journal](https://jas-khetani-portfolio.vercel.app/journal)
+**Journal:** [jaskhetani.vercel.app/journal](https://jaskhetani.vercel.app/journal)
 
 **Source:** [github.com/jaskhetani/jas-khetani-portfolio](https://github.com/jaskhetani/jas-khetani-portfolio)
 
 ## What the site includes
 
 - A recruiter-readable homepage organized around selected work, technical skills, engineering approach, experience, education, writing, and contact.
-- A procedural blossom tree with a dense rasterized canopy, bounded petal animation, reduced-motion support, and responsive geometry.
+- A procedural blossom tree with a dense rasterized canopy, bounded petal animation, scroll-velocity leaf bursts, reduced-motion support, and responsive geometry.
 - A separate mountain-temple journal with search, topic filters, and scroll-inspired article cards.
 - Ten imported Medium essays rendered in a sanitized on-site reader, with the original publication retained as attribution.
 - Owner-written project notes that appear publicly only after an explicit publish action.
-- An unlisted `/study` writing room protected by GitHub OAuth, owner-ID verification, encrypted server-only sessions, CSRF checks, and GitHub SHA concurrency controls.
+- An unlisted `/study` writing room with a Medium-like visual composer, live preview, private drafts, explicit publishing, and GitHub-backed version safety. GitHub OAuth, owner-ID verification, encrypted server-only sessions, CSRF checks, and SHA concurrency controls protect it.
 - A multi-page Vite build deployed automatically to Vercel from `main`.
 
 The retired synthetic AI-safety demo was removed from the homepage. The portfolio now favors evidence from real work and writing over a small simulation that did not materially strengthen the story.
@@ -97,7 +97,7 @@ Never commit secrets, private employer/client material, account data, or credent
 - Publish deeper, permission-safe case studies with architecture diagrams, measurable outcomes, and explicit trade-offs.
 - Grow the field-note journal with original post-deployment lessons rather than generic AI commentary.
 - Replace classic OAuth with a repository-installed GitHub App for tighter, repository-specific permissions.
-- Add a custom domain and durable ownership metadata while preserving the current Vercel deployment path.
+- Add a first-party custom domain and durable ownership metadata while retaining `jaskhetani.vercel.app` as the deployment fallback.
 - Self-host or deliberately archive article imagery that currently depends on original Medium-hosted assets.
 - Keep reducing tree raster time and add visual-regression checks without thinning the blossom canopy or weakening reduced-motion behavior.
 - Continue accessibility audits for keyboard navigation, contrast, semantic structure, and long-form reading comfort.

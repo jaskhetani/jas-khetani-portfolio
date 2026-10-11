@@ -8,7 +8,9 @@ const NS='http://www.w3.org/2000/svg',svg=document.querySelector('#tree'),page=d
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 let paused=reduced.matches,seed=9127,geometry={},particles=[],sources=[],clock=0,last=0,stats={},raf=0,timer=0,viewY=scrollY,signature='',builds=0;
 const petal=new Path2D('M0 0 C-6-2-9-8-5-12 Q-2-15 0-11 Q3-15 6-11 C10-6 5-1 0 0Z');
+const leaf=new Path2D('M0-13 C9-11 12-2 1 12 C-10 2-10-9 0-13Z');
 const palette=['#f7c7d8','#edabc5','#fbe1e9','#e693b4','#f4bed1'];
+const leafPalette=['#718068','#8f7554','#b57a5f','#67745d'];
 let painter=null, blobUrls=[];
 function sizeAir(){const d=Math.min(devicePixelRatio||1,1.5);air.width=Math.round(innerWidth*d);air.height=Math.round(innerHeight*d);airCtx.setTransform(d,0,0,d,0,0)}
 function layoutKey(){return [page.clientWidth,page.offsetHeight,ground.offsetTop,...[...main.querySelectorAll('.section')].map(e=>Math.round(e.offsetTop+e.offsetHeight))].join('|')}
@@ -23,7 +25,7 @@ function curve(c){return `M${c[0].x},${c[0].y} C${c[1].x},${c[1].y} ${c[2].x},${
 function build(){
 const buildStarted=performance.now();
 const key=layoutKey();if(key===signature)return;signature=key;builds++;
-seed=9127;svg.replaceChildren();sources=[];particles=[];stats={landed:0,exited:0,spawned:0,frames:0,maxStepMs:0};clock=0;sizeAir();
+seed=9127;svg.replaceChildren();sources=[];particles=[];stats={landed:0,exited:0,spawned:0,frames:0,maxStepMs:0,scrollBursts:0};clock=0;sizeAir();
 const stamps=[],tileHeight=512;
 if(painter){painter.terminate();painter=null;}
 for(const url of blobUrls)URL.revokeObjectURL(url);blobUrls=[];
@@ -76,12 +78,13 @@ if(typeof Worker!=='undefined'&&typeof OffscreenCanvas!=='undefined'){
 }else fallback();
 for(let i=0;i<150;i++){const x=X-95+rng()*(mobile?210:500),y=G-6+rng()*17;el('use',{href:'#petalShape',transform:`translate(${x} ${y}) rotate(${55+rng()*90}) scale(${.28+rng()*.32})`,fill:i%3?'#f0b1c9':'#f7d4e0'},litter)}
 const poolSize=mobile?12:22;
-function resetParticle(q,initial=false){const src=sources[Math.floor(rng()*sources.length)]||pt(X,100);Object.assign(q,{x:src.x,y:src.y,angle:rng()*360,s:.35+rng()*.26,vx:3+rng()*10,vy:60+rng()*30,phase:rng()*6.28,state:'fall',rest:0});if(initial){q.x=X+rng()*W*.18;q.y=180+rng()*Math.max(1,G-250)}stats.spawned++;return q}
+function resetParticle(q,initial=false){const src=sources[Math.floor(rng()*sources.length)]||pt(X,100);Object.assign(q,{x:src.x,y:src.y,angle:rng()*360,s:.35+rng()*.26,vx:3+rng()*10,vy:60+rng()*30,phase:rng()*6.28,state:'fall',rest:0,kind:'petal',color:0,spin:20});if(initial){q.x=X+rng()*W*.18;q.y=180+rng()*Math.max(1,G-250)}stats.spawned++;return q}
 for(let i=0;i<poolSize;i++)particles.push(resetParticle({},true));
 geometry.flowerSources=sources.length;geometry.particleLimit=poolSize;geometry.buildMs=Math.round(performance.now()-buildStarted);
-function step(dt){const begin=performance.now();clock+=dt;for(let i=0;i<particles.length;i++){const p=particles[i];if(p.state==='fall'){p.x+=(p.vx+Math.sin(clock*.6+p.phase)*9)*dt;p.y+=p.vy*dt;p.angle+=20*dt;if(p.y>=G-3){p.y=G-3;p.state='rest';p.rest=.6+(i%5)*.3;stats.landed++}}else if(p.state==='rest'){p.rest-=dt;if(p.rest<=0){p.state='ground';p.vx=55+(i%7)*8}}else{p.x+=p.vx*dt;p.y=G-3-Math.abs(Math.sin(clock*1.8+p.phase))*7;p.angle+=75*dt}if(p.x>W+36||p.x<-60||p.y>H+30){stats.exited++;resetParticle(p)}}stats.maxStepMs=Math.max(stats.maxStepMs,performance.now()-begin)}
-function draw(){airCtx.clearRect(0,0,innerWidth,innerHeight);if(paused)return;airCtx.fillStyle='#edafc7';for(const p of particles){const y=p.y-viewY;if(y<-25||y>innerHeight+25)continue;airCtx.save();airCtx.translate(p.x,y);airCtx.rotate(p.angle*Math.PI/180);airCtx.scale(p.s,p.s);airCtx.fill(petal);airCtx.restore()}}
-window.treeStudy={geometry,stats,get particles(){return particles.map(p=>({...p}))},step,draw,paused:()=>paused,pendingFrame:()=>Boolean(raf)};
+function burstLeaves(strength=1){if(paused)return;const count=Math.min(poolSize,Math.max(6,Math.round(8+strength*8))),nearby=sources.filter(source=>source.y>viewY-120&&source.y<viewY+innerHeight*.55);for(let i=0;i<count;i++){const p=particles[i],src=nearby.length?nearby[Math.floor(rng()*nearby.length)]:pt(rng()*W,viewY-15-rng()*90);Object.assign(p,{x:src.x+(rng()-.5)*34,y:Math.max(viewY-90,src.y),angle:rng()*360,s:.48+rng()*.40,vx:-28+rng()*74,vy:95+rng()*95,phase:rng()*6.28,state:'fall',rest:0,kind:'leaf',color:Math.floor(rng()*leafPalette.length),spin:(rng()>.5?1:-1)*(95+rng()*150)});}stats.scrollBursts++;}
+function step(dt){const begin=performance.now();clock+=dt;for(let i=0;i<particles.length;i++){const p=particles[i];if(p.state==='fall'){p.x+=(p.vx+Math.sin(clock*(p.kind==='leaf'?2.1:.6)+p.phase)*(p.kind==='leaf'?18:9))*dt;p.y+=p.vy*dt;p.angle+=p.spin*dt;if(p.y>=G-3){p.y=G-3;p.state='rest';p.rest=.6+(i%5)*.3;stats.landed++}}else if(p.state==='rest'){p.rest-=dt;if(p.rest<=0){p.state='ground';p.vx=55+(i%7)*8}}else{p.x+=p.vx*dt;p.y=G-3-Math.abs(Math.sin(clock*1.8+p.phase))*7;p.angle+=75*dt}if(p.x>W+36||p.x<-60||p.y>H+30){stats.exited++;resetParticle(p)}}stats.maxStepMs=Math.max(stats.maxStepMs,performance.now()-begin)}
+function draw(){airCtx.clearRect(0,0,innerWidth,innerHeight);if(paused)return;for(const p of particles){const y=p.y-viewY;if(y<-25||y>innerHeight+25)continue;airCtx.save();airCtx.translate(p.x,y);airCtx.rotate(p.angle*Math.PI/180);if(p.kind==='leaf'){const tumble=.55+.45*Math.abs(Math.cos((clock*4+p.phase)));airCtx.scale(p.s*tumble,p.s);airCtx.fillStyle=leafPalette[p.color%leafPalette.length];airCtx.fill(leaf);}else{airCtx.scale(p.s,p.s);airCtx.fillStyle='#edafc7';airCtx.fill(petal);}airCtx.restore()}}
+window.treeStudy={geometry,stats,get particles(){return particles.map(p=>({...p}))},step,draw,burstLeaves,paused:()=>paused,pendingFrame:()=>Boolean(raf)};
 draw();
 }
 // 20 fps maximum; no DOM writes or layout reads per animation frame.
@@ -94,7 +97,10 @@ new ResizeObserver(scheduleBuild).observe(page);
 new MutationObserver(scheduleBuild).observe(main,{childList:true,subtree:true,characterData:true,attributes:true});
 new MutationObserver(scheduleBuild).observe(ground,{childList:true,subtree:true,characterData:true,attributes:true});
 addEventListener('resize',()=>{sizeAir();scheduleBuild()},{passive:true});
-addEventListener('scroll',()=>{viewY=scrollY},{passive:true});
+let priorScrollY=scrollY,priorScrollAt=performance.now(),lastBurstAt=0,lastUserScrollAt=0;
+addEventListener('wheel',event=>{const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1);if(delta>70)lastUserScrollAt=performance.now();},{passive:true});
+addEventListener('touchmove',()=>{lastUserScrollAt=performance.now();},{passive:true});
+addEventListener('scroll',()=>{const now=performance.now(),nextY=scrollY,dy=nextY-priorScrollY,dt=Math.max(16,now-priorScrollAt);viewY=nextY;if(!paused&&now-lastUserScrollAt<240&&dy>90&&(dy/dt>1.35||dy>innerHeight*.72)&&now-lastBurstAt>180){window.treeStudy?.burstLeaves(Math.min(1.7,dy/innerHeight));lastBurstAt=now;}priorScrollY=nextY;priorScrollAt=now;},{passive:true});
 document.addEventListener('visibilitychange',syncMotion);reduced.addEventListener('change',syncMotion);
 if(document.fonts)document.fonts.ready.then(scheduleBuild);
 

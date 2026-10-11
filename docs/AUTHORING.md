@@ -22,11 +22,11 @@ Do not make the draft repository public. Build exclusion is not a privacy bounda
 4. Set the authorization callback to the exact value below, including the query string:
 
    ```text
-   https://YOUR-HOST/api/author?action=callback
+   https://jaskhetani.vercel.app/api/author?action=callback
    ```
 
 5. Add these server-only variables in Vercel for **Production**. Never prefix them with `VITE_`:
-   - `APP_ORIGIN` — exact `https://YOUR-HOST`, with no trailing slash or path.
+   - `APP_ORIGIN` — exact `https://jaskhetani.vercel.app`, with no trailing slash or path.
    - `DRAFT_REPO` — exact value `jaskhetani/jas-khetani-portfolio-notes`.
    - `GITHUB_CLIENT_ID` — OAuth app client ID.
    - `GITHUB_CLIENT_SECRET` — OAuth app secret, entered directly into Vercel’s masked settings.
@@ -50,6 +50,8 @@ A repository-installed GitHub App is the planned least-privilege successor. Unti
 
 ## Authoring behavior
 
+- The writing room uses a visual rich-text surface for headings, emphasis, links, quotes, lists, code, dividers, and HTTPS imagery. A sanitized live preview shows the public reading treatment. The browser converts the visual document to portable Markdown before sending it to the API; authors do not have to write Markdown directly.
+- If only metadata changes, an existing note’s Markdown body is preserved byte-for-byte. Once the story itself is edited, the full visual document is normalized back to GitHub-flavored Markdown; unsupported formatting and non-HTTPS media may be removed, so review the live preview before saving.
 - New note slugs must start with `note-`; imported Medium slugs cannot use that namespace.
 - Saving a draft writes and reads back the exact private GitHub commit with a SHA concurrency check.
 - Publishing writes the private source, then copies the server-generated note schema to the public repository and verifies the public commit.
