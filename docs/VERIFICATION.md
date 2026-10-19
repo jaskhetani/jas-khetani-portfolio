@@ -19,7 +19,7 @@ Source: user-designated `Downloads/jas-fde-portfolio-bundle/`. Destination: publ
 - `npm audit --omit=dev`: zero reported vulnerabilities at verification time.
 - Full-page screenshots were visually reviewed for the desktop/mobile homepage, temple journal, reader, and writing studio. The evidence-led layout retained the blossom-tree identity without horizontal clipping at any tested width.
 
-The final local browser run measured **176–1,503 ms main-thread geometry** and **1,446–2,461 ms worker rasterization** across tested widths. The 1,024-pixel run was a clear main-thread outlier; repeated runs varied substantially on a busy host. These are local observations, not universal performance guarantees. Content remains usable while worker artwork finishes, and the same dense canopy was retained.
+Recent local browser runs measured **129–1,503 ms main-thread geometry** and **1,446–4,509 ms worker rasterization** across tested widths. The high values were outliers on a busy host; repeated runs varied substantially between Edge and Chromium. These are local observations, not universal performance guarantees. Content remains usable while worker artwork finishes, and the same dense canopy was retained.
 
 ## Deployment boundary
 

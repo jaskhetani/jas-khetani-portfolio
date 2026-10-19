@@ -16,7 +16,7 @@ for(const width of widths){
  });
  test(`journal and scroll reader at ${width}px`,async({page})=>{
   const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.setViewportSize({width,height:900});await page.goto('/journal');await expect.poll(()=>page.locator('.scroll-card').count()).toBe(12);
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);await page.screenshot({path:`test-results/journal-${width}.png`});
+  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);await page.screenshot({path:`test-results/journal-${width}.png`});
   await page.getByRole('button',{name:'Project notes',exact:true}).click();await expect(page.locator('.scroll-card')).toHaveCount(2);await expect(page.locator('.scroll-card .forthcoming')).toHaveCount(2);await page.getByRole('button',{name:'Lab notebooks',exact:true}).click();await expect(page.locator('.scroll-card')).toHaveCount(3);await page.locator('#search').fill('not-an-article');await expect(page.locator('#empty')).toBeVisible();await page.getByRole('button',{name:'Show all writing'}).click();await expect(page.locator('.scroll-card')).toHaveCount(12);
   await page.locator('.open-scroll').first().click();await expect(page).toHaveURL(/\/journal\/[a-z0-9-]+$/);await expect(page.locator('#article-title')).not.toHaveText('Opening your scroll…');await expect(page.locator('#article-body')).not.toBeEmpty();
   expect(await page.locator('#article-body').innerText()).toMatch(/quantum/i);expect((await page.locator('#article-body').innerText()).length).toBeGreaterThan(5000);expect(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)).toBe(false);
