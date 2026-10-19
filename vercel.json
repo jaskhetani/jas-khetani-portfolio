@@ -36,7 +36,7 @@
   "rewrites": [
     {
       "source": "/journal/:slug",
-      "destination": "/read.html"
+      "destination": "/read"
     }
   ],
   "headers": [
