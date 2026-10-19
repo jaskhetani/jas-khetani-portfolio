@@ -11,3 +11,11 @@ function finishWheelBurst(){wheelBurst=false;const total=wheelTotal,startedAtBot
 addEventListener('wheel',event=>{if(event.ctrlKey)return;const delta=wheelPixels(event);if(delta<0){if(!wheelBurst){wheelBurst=true;wheelStartedAtBottom=atBottomEdge();wheelTotal=0;}wheelTotal+=delta;clearTimeout(wheelBurstTimer);wheelBurstTimer=setTimeout(finishWheelBurst,180);}else if(delta>0&&wheelBurst){clearTimeout(wheelBurstTimer);finishWheelBurst();}},{passive:true});
 addEventListener('touchstart',event=>{if(event.touches.length!==1){touchStartY=null;touchStartedAtBottom=false;return;}touchStartY=event.touches[0]?.clientY??null;touchStartedAtBottom=atBottomEdge();},{passive:true});
 addEventListener('touchend',event=>{const endY=event.changedTouches[0]?.clientY;if(touchStartY!==null&&endY-touchStartY>=140)registerUpwardIntent(touchStartedAtBottom);touchStartY=null;touchStartedAtBottom=false;},{passive:true});
+
+const commercialDialog=document.querySelector('#commercial-dialog');
+const openCommercials=document.querySelector('#open-commercials');
+const closeCommercials=document.querySelector('#close-commercials');
+function loadCommercials(){for(const card of commercialDialog?.querySelectorAll('[data-video]')||[]){if(card.querySelector('iframe'))continue;const frame=document.createElement('iframe');frame.title=card.querySelector('h3')?.textContent||'Commercial';frame.src=`https://www.youtube-nocookie.com/embed/${card.dataset.video}`;frame.loading='lazy';frame.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';frame.referrerPolicy='strict-origin-when-cross-origin';frame.allowFullscreen=true;card.prepend(frame);}}
+openCommercials?.addEventListener('click',()=>{loadCommercials();commercialDialog.showModal();});
+closeCommercials?.addEventListener('click',()=>commercialDialog.close());
+commercialDialog?.addEventListener('click',event=>{if(event.target===commercialDialog)commercialDialog.close();});

@@ -6,6 +6,18 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/read",
+      "has": [
+        {
+          "type": "query",
+          "key": "post",
+          "value": "(?<slug>[a-z0-9]+(?:-[a-z0-9]+)*)"
+        }
+      ],
+      "destination": "/journal/:slug",
+      "permanent": true
+    },
+    {
       "source": "/blog.html",
       "destination": "/journal",
       "permanent": true
@@ -19,6 +31,12 @@
       "source": "/blossom-scroll-prototype-v2.html",
       "destination": "/",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/journal/:slug",
+      "destination": "/read.html"
     }
   ],
   "headers": [
@@ -39,7 +57,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; connect-src 'self'; frame-src https://www.youtube-nocookie.com; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
         }
       ]
     },
