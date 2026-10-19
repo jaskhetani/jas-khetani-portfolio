@@ -1,6 +1,6 @@
-# Jas Khetani — AI & Software Engineering Portfolio
+# Jas Khetani — Forward-Deployed & Agentic AI Portfolio
 
-A public, recruiter-facing portfolio for Jas Khetani’s applied-AI, software-engineering, and customer-workflow work. The experience pairs a blossom-tree homepage with a quiet mountain-temple journal, while keeping the information architecture conventional enough to scan quickly.
+A public, recruiter-facing portfolio for Jas Khetani’s forward-deployed agentic AI, production engineering, and customer-workflow work. The experience pairs a blossom-tree homepage with a quiet mountain-temple journal, while keeping the evidence hierarchy conventional enough to scan quickly.
 
 **Live site:** [jaskhetani.vercel.app](https://jaskhetani.vercel.app/)
 
@@ -10,7 +10,8 @@ A public, recruiter-facing portfolio for Jas Khetani’s applied-AI, software-en
 
 ## What the site includes
 
-- A recruiter-readable homepage organized around selected work, technical skills, engineering approach, experience, education, writing, and contact.
+- A recruiter-readable homepage organized around deployment proof, technical capabilities, methodology, experience, direct credential artifacts, recognition, writing, and contact.
+- Seven issuer-hosted credential records, working public evidence links, a lazily loaded privacy-enhanced commercial archive, and canonical structured metadata without unsupported title inflation.
 - A procedural blossom tree with a dense rasterized canopy, bounded petal animation, scroll-velocity leaf bursts, reduced-motion support, and responsive geometry.
 - A separate mountain-temple journal with search, topic filters, and scroll-inspired article cards.
 - Ten imported Medium essays rendered in a sanitized on-site reader, with the original publication retained as attribution.
@@ -18,13 +19,14 @@ A public, recruiter-facing portfolio for Jas Khetani’s applied-AI, software-en
 - An unlisted `/study` writing room with a Medium-like visual composer, live preview, private drafts, explicit publishing, and GitHub-backed version safety. GitHub OAuth, owner-ID verification, encrypted server-only sessions, CSRF checks, and SHA concurrency controls protect it.
 - A multi-page Vite build deployed automatically to Vercel from `main`.
 
-The retired synthetic AI-safety demo was removed from the homepage. The portfolio now favors evidence from real work and writing over a small simulation that did not materially strengthen the story.
+The retired synthetic AI-safety demo remains removed. The portfolio favors evidence from real work, direct artifacts, and writing over simulations or unsupported claims. The final résumé is intentionally absent until an owner-approved file is supplied.
 
 ## Routes
 
 - `/` — portfolio homepage
 - `/journal` — searchable writing archive
-- `/read?post=<slug>` — on-site reading scroll
+- `/journal/<slug>` — canonical on-site reading scroll
+- `/read?post=<slug>` — permanent legacy redirect to the clean journal URL
 - `/study` — owner-only project-note editor; deliberately absent from public navigation and search indexing
 - `/api/author` — Vercel serverless OAuth and authoring endpoint
 

@@ -1,5 +1,9 @@
 import DOMPurify from 'dompurify';
-const slug=new URLSearchParams(location.search).get('post'),title=document.querySelector('#article-title'),body=document.querySelector('#article-body');let size=18;
+const pathSlug=location.pathname.match(/^\/journal\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/)?.[1];
+const querySlug=new URLSearchParams(location.search).get('post');
+const slug=pathSlug||querySlug,title=document.querySelector('#article-title'),body=document.querySelector('#article-body');let size=18;
+if(!pathSlug&&slug&&/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))history.replaceState(null,'','/journal/'+slug);
+const canonical=document.querySelector('link[rel=canonical]')||document.head.appendChild(document.createElement('link'));canonical.rel='canonical';canonical.href='https://jaskhetani.vercel.app/journal/'+(slug||'');
 function setSize(delta){size=Math.max(16,Math.min(24,size+delta));body.style.setProperty('--reading-size',size+'px');document.querySelector('#smaller').disabled=size===16;document.querySelector('#larger').disabled=size===24;}
 document.querySelector('#smaller').addEventListener('click',()=>setSize(-1));document.querySelector('#larger').addEventListener('click',()=>setSize(1));document.querySelector('#print').addEventListener('click',()=>print());
 let ticking=false;function progress(){ticking=false;const article=document.querySelector('#article'),start=article.offsetTop,total=article.offsetHeight-innerHeight;const fraction=Math.max(0,Math.min(1,(scrollY-start)/Math.max(1,total)));document.querySelector('.reading-progress span').style.transform=`scaleX(${fraction})`;}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://jaskhetani.vercel.app/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/binary-and-decimal</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/is-quantum-computing-here</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/majorana-1</loc><priority>0.7</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/qgss-lab-1</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/qgss-lab-2</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/qgss-lab-4</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/quantum-classical-logic</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/quantum-error-correction</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/quantum-fintech</loc><priority>0.6</priority></url>
+  <url><loc>https://jaskhetani.vercel.app/journal/quantum-iphones</loc><priority>0.6</priority></url>
+</urlset>

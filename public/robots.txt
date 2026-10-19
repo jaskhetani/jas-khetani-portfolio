@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /study
+Disallow: /api/
+
+Sitemap: https://jaskhetani.vercel.app/sitemap.xml
