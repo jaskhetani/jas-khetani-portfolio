@@ -6,17 +6,18 @@ Source: user-designated `Downloads/jas-fde-portfolio-bundle/`. Destination: publ
 
 ## Executed locally
 
-- `npm test`: **22 passing** unit/security/content/structure tests.
-- `npm run build`: successful Vite production build; **10 imported published articles**; drafts excluded.
-- `npm run test:e2e`: **29 passing** Microsoft Edge production-build browser tests.
+- `npm test`: **24 passing** unit/security/content/structure tests.
+- `npm run build`: successful Vite production build; **13 imported published articles** (10 Medium, 3 Blogger); drafts excluded.
+- `npm run test:e2e`: **30 passing** Microsoft Edge production-build browser tests.
 - Layout widths: **320, 390, 768, 1024, 1440 CSS pixels**. No horizontal document overflow; measured tree connections and ground alignment hold.
-- Journal filtering, search, empty state, two visibly forthcoming project-note topics, clean `/journal/<slug>` routes, legacy-link canonicalization, text-size controls, all ten full imported bodies, and a useful missing-article state.
+- Journal filtering, search, empty state, two visibly forthcoming project-note topics, clean `/journal/<slug>` routes, legacy-link canonicalization, text-size controls, all ten Medium bodies, all three text-only Blogger originals, and a useful missing-article state.
+- A fresh read of the public Blogger feed matched all three committed archive snapshots exactly for title, publication timestamp, canonical URL, and raw body HTML; SHA-256 body digests were recorded in the verification run output.
 - Homepage proof checks cover the forward-deployed positioning, canonical facts, seven direct credential artifacts, omission of stale/unsupported claims, six lazy `youtube-nocookie.com` commercial embeds, canonical/structured metadata, `robots.txt`, and `sitemap.xml`.
 - Reduced motion: no falling-petal or scroll-leaf frame scheduling; arrival leaf hidden. Fast downward scrolling releases a bounded leaf burst, and the deliberate footer double-up owner gesture routes to the OAuth-protected study.
 - Owner editor tests simulate authenticated API responses: visual formatting to Markdown, sanitized live preview, word/read-time count, note namespace, cancelled navigation, locked controls during loading, edits retained during saving, explicit unpublish, and verified-save/list-refresh distinction.
 - Server tests simulate GitHub: OAuth state+PKCE, encrypted cookies, numeric owner allowlist, nonowner denial/token revocation, CSRF, origin denial, exact private/public repository verification, validation, SHA conflicts, read-back after private save and public publication, explicit unpublish deletion, and honest partial-sync failures.
 - Stale worker/fallback regression tests prevent older renders from terminating/replacing the current generation.
-- `npm audit --omit=dev`: zero reported vulnerabilities at verification time.
+- `npm audit`: zero reported vulnerabilities after updating DOMPurify to 3.5.0, sanitize-html to 2.18.2, and Vite to 8.3.8.
 - Full-page screenshots were visually reviewed for the desktop/mobile homepage, temple journal, reader, and writing studio. The evidence-led layout retained the blossom-tree identity without horizontal clipping at any tested width.
 
 Recent local browser runs measured **129–1,503 ms main-thread geometry** and **1,446–4,509 ms worker rasterization** across tested widths. The high values were outliers on a busy host; repeated runs varied substantially between Edge and Chromium. These are local observations, not universal performance guarantees. Content remains usable while worker artwork finishes, and the same dense canopy was retained.

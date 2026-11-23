@@ -20,6 +20,12 @@ Source: https://medium.com/feed/@jaskhetani
 
 Ten distinct articles are stored in content/medium as author-feed HTML and metadata. Every target from the supplied blog page matched a feed entry. Each includes a substantial body, closing paragraphs or lab copyright notices, not a short feed teaser. `full-feed` means the complete body supplied by Medium's public RSS, not a claim that interactive embeds, comments, or member-only extras were imported. Article wording is retained; HTML is sanitized at build. Source links and code copyright notices are retained. External image URLs remain lazy-loaded from their original hosts, with no referrer. Interactive iframes/scripts and tracking pixels are not embedded. This is not an authenticated Medium export; if a future feed contains only excerpts, request the author's export instead of inventing text.
 
+## Blogger archive
+
+Source: https://jaskhetani.blogspot.com/feeds/posts/default?alt=json
+
+The feed contains exactly three posts, all published on December 29, 2022: `RED - A Color or an Understanding`, `Old is Aurum`, and `Time Travel Conjecture`. Their full text and publication metadata are stored in `content/blogger`; the original Blogspot URLs remain attribution links. The journal labels them as early writing and states that speculative claims reflect the author's thinking at the time. Legacy images are deliberately excluded from the portfolio because their third-party rights are not established; the original pages retain the historical visual context.
+
 ## Resource policy
 
-Public pages have no React runtime, remote fonts, analytics, AI-service calls, or database. Article bodies are loaded only when opened. Draft files never enter public/data or dist. Blossom raster work runs in a worker; unsupported platforms use an asynchronously chunked fallback. Old worker jobs are terminated and object URLs revoked on geometry rebuilds. Reduced motion disables falling petals and entry animation.
+Public pages have no React runtime, remote fonts, analytics, AI-service calls, or database. Article bodies are loaded only when opened. Medium imagery remains lazy-loaded from its original host; legacy Blogger imagery is excluded. Draft files never enter public/data or dist. Blossom raster work runs in a worker; unsupported platforms use an asynchronously chunked fallback. Old worker jobs are terminated and object URLs revoked on geometry rebuilds. Reduced motion disables falling petals and entry animation.

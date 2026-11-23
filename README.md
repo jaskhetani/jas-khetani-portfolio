@@ -14,7 +14,7 @@ A public, recruiter-facing portfolio for Jas Khetani’s forward-deployed agenti
 - Seven issuer-hosted credential records, working public evidence links, a lazily loaded privacy-enhanced commercial archive, and canonical structured metadata without unsupported title inflation.
 - A procedural blossom tree with a dense rasterized canopy, bounded petal animation, scroll-velocity leaf bursts, reduced-motion support, and responsive geometry.
 - A separate mountain-temple journal with search, topic filters, and scroll-inspired article cards.
-- Ten imported Medium essays rendered in a sanitized on-site reader, with the original publication retained as attribution.
+- Thirteen imported essays rendered in a sanitized on-site reader: ten Medium articles plus three text-only Blogger originals from December 2022, retained as a clearly labeled early-writing archive with source attribution.
 - Owner-written project notes that appear publicly only after an explicit publish action.
 - An unlisted `/study` writing room with a Medium-like visual composer, live preview, private drafts, explicit publishing, and GitHub-backed version safety. GitHub OAuth, owner-ID verification, encrypted server-only sessions, CSRF checks, and SHA concurrency controls protect it.
 - A multi-page Vite build deployed automatically to Vercel from `main`.
