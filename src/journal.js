@@ -1,5 +1,5 @@
 const shelf=document.querySelector('#posts'),search=document.querySelector('#search'),count=document.querySelector('#count');
-const labels={frontier:'Frontier',foundations:'Foundations',lab:'Lab notebook',field:'Project note'};
+const labels={frontier:'Frontier',foundations:'Foundations',lab:'Lab notebook',field:'Project note',archive:'Early writing'};
 const forthcoming=[
  {slug:'designing-mcp-boundary',title:'Designing an MCP Boundary for Multi-Tenant AI Copilots',summary:'Lessons from account scoping, read-only tools, and adversarial prompt testing in a production environment.',category:'field',date:'2026-12-01',readingMinutes:6,forthcoming:true},
  {slug:'local-first-agents-raspberry-pi',title:'Running Local-First Autonomous Agents on a Raspberry Pi 5',summary:'An architecture note on Hermes, Paperclip AI, Tailscale, idempotent writes, and private edge execution.',category:'field',date:'2026-12-01',readingMinutes:7,forthcoming:true}
